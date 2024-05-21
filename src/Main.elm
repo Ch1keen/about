@@ -123,19 +123,45 @@ section title body =
 ch1keenProfile : Html Msg
 ch1keenProfile =
   section "Profile"
-    (ul [] [])
+    (p []
+       [])
 
 ch1keenCareer : Html Msg
 ch1keenCareer =
   section "Career"
     (ul
       []
-      [ li [] [ text "2023.10 ~ present: AutoCrypt" ] ])
+      [ li []
+           [ text "2023.10 - present: Red Team, AutoCrypt"
+           , ul []
+                [ li [] [ text "Performed penetration testings against ECUs, including UDS testings over CAN and Ethernet with understanding of ISO-14229-1" ]
+                , li [] [ text "Improved fuzzing library that has been used to perform fuzzing against media libraries and its implementations" ]
+                , li [] [ text "Wrote a report article about Automobile Hacking, which was submitted to the Hyundai" ]
+                , li [] [ text "Participated teams' efforts about RDW authentication of an ECU" ]
+                ]
+           ]
+      , li []
+           [ text "2019.03 - 2020.10: CERT Team, Republic of Korea Army"
+           , ul []
+                [ li [] [ text "Led a CERT squad as the CERT squad leader, managed team members and followed the CERT team's missions and goals" ]
+                , li [] [ text "Identified malicious logs and responded to the cyber security incidences of all divisions of a corps by managing firewalls and Network Access Control systems" ]
+                ]
+           ]
+      ])
 
 ch1keenEducation : Html Msg
 ch1keenEducation =
   section "Education"
-    (ul [] [])
+    (ul
+      []
+      [ li []
+           [ text "2017.03 - 2023.02: Kyonggi University (RPA 3.91 / 4.5)"
+           , ul []
+                [ li [] [ text "Bachelor of Convergence Security" ]
+                , li [] [ text "Bachelor of Electronics Engineering" ]
+                ]
+           ]
+      ])
 
 ch1keenCertificate : Html Msg
 ch1keenCertificate =
