@@ -142,7 +142,7 @@ ch1keenCareer =
                 [ text "Key Projects"
                 , ul []
                     [ li [] [ text "Automobile Hacking Report (2024): Authored a report on automobile cybersecurity focusing on modern ECU vulnerabilities." ]
-                    , li [] [ text "The Dia programming langauge (2024): A functional programming language focused on portability and creating statically compiled binary." ]
+                    , li [] [ text "The Dia programming language (2024): A functional programming language focused on portability and creating statically compiled binary." ]
                     , li []
                       [ text "The "
                       , a [ href "https://wiki.ch1keen.xyz/" ] [ text "Ch1keen Wiki" ]
