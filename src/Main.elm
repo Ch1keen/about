@@ -112,15 +112,16 @@ ch1keenCareer =
             [ li []
                 [ text "2023.10 - present: Red Team, AutoCrypt"
                 , ul []
-                    [ li [] [ text "Led V2X (Vehicle-to-Everything) testing, focusing on CAM/DENM and BSM functionalities. Specialized in reverse engineering V2X communication services and developing test plans." ]
-                    , li [] [ text "Contributed to RDW authentication efforts of an In-Vehicle Infotainment (IVI) hardware, enhancing security protocols." ]
-                    , li [] [ text "Authored a concise report on Automobile Hacking, improving internal understanding of key vulnerabilities." ]
+                    [ li [] [ text "Performed penetration testing based on the TARA method (ISO/SAE 21434) on UDS (ISO 14229-1) and discovered possible vulnerabilities on Yocto Linux, QNX, and Autosar based systems." ]
+                    , li [] [ text "Led SPI tesing, focusing on sniffing data by connecting exposed SPI lines and dumping data of an exposed SOIC-8 chip on an instrument cluster." ]
+                    , li [] [ text "Led V2X (Vehicle-to-Everything) testing, focusing on CAM/DENM and BSM functionalities. Specialized in reverse engineering V2X communication services and developing test plans." ]
+                    , li [] [ text "Contributed to RDW authentication efforts of an In-Vehicle Infotainment (IVI) hardware by ensuring there were no vulnerabilities on CAN/UDS and a media player on IVI." ]
                     ]
                 ]
             , li []
                 [ text "2020.10 - 2021.02: Application Developer Intern, Petner"
                 , ul []
-                    [ li [] [ text "Developed community service using Flutter framework." ]
+                    [ li [] [ text "Developed community service using Flutter and Ruby on Rails frameworks." ]
                     , li [] [ text "Integrated user location tracking and remote camera sharing services using WebRTC." ]
                     ]
                 ]
@@ -141,14 +142,13 @@ ch1keenCareer =
             , li []
                 [ text "Key Projects"
                 , ul []
-                    [ li [] [ text "Automobile Hacking Report (2024): Authored a report on automobile cybersecurity focusing on modern ECU vulnerabilities." ]
-                    , li [] [ text "The Dia programming language (2024): A functional programming language focused on portability and creating statically compiled binary." ]
+                    [ li [] [ text "The Dia programming language (2024): A functional programming language focused on portability and creating statically compiled binary." ]
                     , li []
                       [ text "The "
                       , a [ href "https://wiki.ch1keen.xyz/" ] [ text "Ch1keen Wiki" ]
-                      , text "(2023): Maintaining a web site about cybersecurity and collected notable tips." ]
-                    , li [] [ text "DevSecOps Container Security Platform (2022): Contributed to a platform integrating image signing and vulnerability scanning in CI/CD pipelines." ]
-                    , li [] [ text "NFT Trading Platform (2021): Led a team of 11 to develop a secure NFT trading platform." ]
+                      , text "(2023): Maintaining a web site about cyber security and collected notable tips." ]
+                    , li [] [ text "DevSecOps Container Security Platform (2022): A container managing platform integrating image signing and vulnerability scanning in CI/CD pipelines. (Open Source)" ]
+                    , li [] [ text "NFT Trading Platform (2021): Led a team of 11 students to suggest a secure NFT trading platform to a start up." ]
                     , li [] [ text "Flutter-based Community Service (2020): Developed an app with location tracking and remote camera functionalities." ]
                     ]
                 ]
@@ -206,6 +206,13 @@ ch1keenVolunteer =
     section "Volunteer Experience"
         (ul []
             [ li []
+                [ text "Open Source Contributions"
+                , ul []
+                    [ li [] [ text "Nix and Ronin: Packaged the Ruby based project 'Ronin' into the Nixpkgs." ]
+                    , li [] [ text "r2angr: Provided Proof-of-Concept code on how to decompile with angr." ]
+                    ]
+                ]
+            , li []
                 [ text "BoB Alumni Council"
                 , ul []
                     [ li [] [ text "Active member of the council, contributing to organizing workshops and alumni events." ]
@@ -255,10 +262,10 @@ view model =
             [ ch1keenTitle
             , ch1keenProfile
             , ch1keenCareer
+            , ch1keenVolunteer
             , ch1keenAward
             , ch1keenEducation
             , ch1keenCertificate
-            , ch1keenVolunteer
             ]
         , hr [ style "border-color" slate_100 ] []
         , footer
