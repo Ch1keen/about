@@ -1,8 +1,9 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, div, text, hr, p, a, h1, h2, ul, li, img, span)
+import Html exposing (Html, div, text, button, hr, p, a, h1, h2, ul, li, img, span)
 import Html.Attributes exposing (class, style, href, src, width, height)
+import Html.Events exposing (onClick)
 
 -- MAIN
 
@@ -11,29 +12,21 @@ main =
 
 -- MODEL
 
-type alias Model =
-    Int
+type alias CssStyling =
+    Bool
 
 
-init : Model
+init : CssStyling
 init =
-    0
+    True
 
 -- UPDATE
 
 type Msg
-    = Increment
-    | Decrement
+    = TogglePageStyle
 
-
-update : Msg -> Model -> Model
-update msg model =
-    case msg of
-        Increment ->
-            model + 1
-
-        Decrement ->
-            model - 1
+update : Msg -> CssStyling -> CssStyling
+update msg model = xor True model
 
 -- STYLE
 
@@ -234,27 +227,42 @@ ch1keenVolunteer =
             ])
 
 
-footer : Html Msg
-footer =
-    div
-        [ style "margin-top" "5rem", style "margin-bottom" "5rem"]
-        [ p footerStyle
-            [ text "Gratefully made with "
-            , a [ href "https://elm-lang.org/" ] [ text "Elm" ]
+footer : CssStyling -> Html Msg
+footer cssStyling =
+    if cssStyling == True
+    then
+        div
+            [ style "margin-top" "5rem", style "margin-bottom" "5rem"]
+            [ p footerStyle
+                [ text "Gratefully made with "
+                , a [ href "https://elm-lang.org/" ] [ text "Elm" ]
+                ]
+            , p footerStyle
+                [ text "Copyright 2024. Ch1keen all rights reserved." ]
+            , p footerStyle
+                [ text "You can "
+                , a [ href "https://github.com/Ch1keen/about" ]
+                    [ text "browse source code of this resume" ]
+                , text "." ]
+            , button [ onClick TogglePageStyle ] [ text "Click here to go to the PDF version of the resume." ]
             ]
-        , p footerStyle
-            [ text "Copyright 2024. Ch1keen all rights reserved." ]
-        , p footerStyle
-            [ text "You can "
-            , a [ href "https://github.com/Ch1keen/about" ]
-                [ text "browse source code of this resume" ]
-            , text "." ]
-        ]
+    else
+        div
+            [ style "page-break-before" "always"]
+            [ p []
+                [ text "This page is intended to be written in a new page. "
+                , text "Press Ctrl+P to save the resume in PDF file, and discard this page before downloading." ]
+            , p [] [ text "Gratefully made with Elm" ]
+            , p [] [ text "Copyright 2024. Ch1keen all rights reserved." ]
+            , p [] [ text "You can visit https://github.com/Ch1keen/about to browse source code of this resume." ]
+            , button [ style "margin" "0 auto", onClick TogglePageStyle ] [ text "Click here to go back to the web publish version of the resume." ]
+            ]
 
 
-view : Model -> Html Msg
-view model =
-    div []
+
+view : CssStyling -> Html Msg
+view cssStyling =
+    div [ if cssStyling then class "pico" else class "" ]
         [ div
             [ class "container" ]
             [ ch1keenTitle
@@ -266,6 +274,6 @@ view model =
             , ch1keenCertificate
             ]
         , hr [ style "border-color" slate_100 ] []
-        , footer
+        , footer cssStyling
         ]
 
