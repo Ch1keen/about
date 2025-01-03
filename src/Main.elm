@@ -122,7 +122,6 @@ ch1keenCareer =
                 [ text "2020.10 - 2021.02: Application Developer Intern, Petner"
                 , ul []
                     [ li [] [ text "Developed community service using Flutter and Ruby on Rails frameworks." ]
-                    , li [] [ text "Integrated user location tracking and remote camera sharing services using WebRTC." ]
                     ]
                 ]
             , li []
@@ -149,7 +148,6 @@ ch1keenCareer =
                       , text "(2023): Maintaining a web site about cyber security and collected notable tips." ]
                     , li [] [ text "DevSecOps Container Security Platform (2022): A container managing platform integrating image signing and vulnerability scanning in CI/CD pipelines. (Open Source)" ]
                     , li [] [ text "NFT Trading Platform (2021): Led a team of 11 students to suggest a secure NFT trading platform to a start up." ]
-                    , li [] [ text "Flutter-based Community Service (2020): Developed an app with location tracking and remote camera functionalities." ]
                     ]
                 ]
             ])
