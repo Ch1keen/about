@@ -115,12 +115,12 @@ ch1keenCareer cssStyling =
     section "Career" cssStyling
         (ul []
             [ li []
-                [ text "2023.10 - present: Red Team, AutoCrypt"
+                [ text "2023.10 - present: Penetration/Security Tester, AutoCrypt Red Team"
                 , ul []
                     [ li [] [ text "Performed penetration testing based on the TARA method (ISO/SAE 21434) on UDS (ISO 14229-1) and discovered possible vulnerabilities on Yocto Linux, QNX, and Autosar based systems." ]
                     , li [] [ text "Led SPI tesing, focusing on sniffing data by connecting exposed SPI lines and dumping data of an exposed SOIC-8 chip on an instrument cluster." ]
                     , li [] [ text "Led V2X (Vehicle-to-Everything) testing, focusing on CAM/DENM and BSM functionalities. Specialized in reverse engineering V2X communication services and developing test plans." ]
-                    , li [] [ text "Contributed to RDW authentication efforts of an In-Vehicle Infotainment (IVI) hardware by ensuring there were no vulnerabilities on CAN/UDS and a media player on IVI." ]
+                    , li [] [ text "Contributed to Vehicle Type Approval efforts of an In-Vehicle Infotainment (IVI) hardware by ensuring there were no vulnerabilities on CAN/UDS and a media player on IVI." ]
                     ]
                 ]
             , li []
@@ -199,8 +199,12 @@ ch1keenCertificate cssStyling =
     section "Certifications" cssStyling
         (ul []
             [ li [] [ text "Forth Class Amateur Radio Operator (Korea)" ]
+              -- Information of SQL Developer
+              -- vhttps://www.dataq.or.kr/www/sub/a_04.do
             , li [] [ text "SQL Developer (SQLD)" ]
-            , li [] [ text "Information Processing Engineer (정보처리기사)" ]
+              -- Information of 정보처리기사 (Engineer Information Processing)
+              -- https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320&gbnn=gbnSubtab2
+            , li [] [ text "Engineer Information Processing (정보처리기사)" ]
             ])
 
 
