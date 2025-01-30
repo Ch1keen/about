@@ -1,8 +1,9 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, div, text, hr, p, a, h1, h2, ul, li, img, span)
+import Html exposing (Html, div, text, button, hr, p, a, h1, h2, ul, li, img, span)
 import Html.Attributes exposing (class, style, href, src, width, height)
+import Html.Events exposing (onClick)
 
 -- MAIN
 
@@ -11,29 +12,21 @@ main =
 
 -- MODEL
 
-type alias Model =
-    Int
+type alias CssStyling =
+    Bool
 
 
-init : Model
+init : CssStyling
 init =
-    0
+    True
 
 -- UPDATE
 
 type Msg
-    = Increment
-    | Decrement
+    = TogglePageStyle
 
-
-update : Msg -> Model -> Model
-update msg model =
-    case msg of
-        Increment ->
-            model + 1
-
-        Decrement ->
-            model - 1
+update : Msg -> CssStyling -> CssStyling
+update msg model = xor True model
 
 -- STYLE
 
@@ -59,10 +52,6 @@ slate_400 =
     "rgb(148 163 184)"
 
 
-sectionStyle : List (Html.Attribute Msg)
-sectionStyle =
-    [ style "margin" "0 auto" ]
-
 
 -- VIEW
 
@@ -81,47 +70,63 @@ contactLine title url label =
         ]
 
 
-ch1keenTitle : Html Msg
-ch1keenTitle =
-    div
-        [ style "padding-top" "48px", style "padding-bottom" "24px" ]
-        [ h1 [ style "text-align" "center" ] [ text "Han Jeongjun" ]
-        , contactLine (text "\u{1f4e7}") "mailto:hire-me@ch1keen.xyz" "hire-me@ch1keen.xyz"
-        , contactLine (img [ src "assets/github-mark.svg", width 24, height 24 ] []) "https://github.com/Ch1keen" "github.com/Ch1keen"
-        ]
+ch1keenTitle : CssStyling -> Html Msg
+ch1keenTitle cssStyling =
+    let
+        titleStyling =
+            if cssStyling
+            then [ style "padding-top" "48px", style "padding-bottom" "24px" ]
+            else [ ]
+    in
+        div
+            titleStyling
+            [ h1 [ style "text-align" "center" ] [ text "Han Jeongjun" ]
+            , contactLine (text "\u{1f4e7}") "mailto:hire-me@ch1keen.xyz" "hire-me@ch1keen.xyz"
+            , contactLine (img [ src "assets/github-mark.svg", width 24, height 24 ] []) "https://github.com/Ch1keen" "github.com/Ch1keen"
+            ]
 
 
-section : String -> Html Msg -> Html Msg
-section title body =
-    div
-        [ style "margin" "0 auto", style "margin-top" "5rem", style "margin-bottom" "5rem" ]
-        [ h2 [] [ text title ], divider, body ]
+section : String -> CssStyling -> Html Msg -> Html Msg
+section title cssStyling body =
+    if cssStyling
+    then
+        div
+            [ style "margin" "5rem auto"
+            , style "break-inside" "avoid"
+            ]
+            [ h2 [] [ text title ], divider, body ]
+    else
+        div
+            [ style "margin" "0 auto"
+            , style "break-inside" "avoid"
+            ]
+            [ h2 [ style "margin-bottom" "2px"] [ text title ], divider, body ]
 
 
-ch1keenProfile : Html Msg
-ch1keenProfile =
-    section "Profile"
+ch1keenProfile : CssStyling -> Html Msg
+ch1keenProfile cssStyling =
+    section "Profile" cssStyling
         (p []
             [ text "Highly motivated and team-friendly individual with diverse experiences in programming, cybersecurity, and collaborative projects. Proficient in various programming languages, frameworks, and tools. Experienced in leading teams and contributing to open-source projects." ])
 
 
-ch1keenCareer : Html Msg
-ch1keenCareer =
-    section "Career"
+ch1keenCareer : CssStyling -> Html Msg
+ch1keenCareer cssStyling =
+    section "Career" cssStyling
         (ul []
             [ li []
                 [ text "2023.10 - present: Red Team, AutoCrypt"
                 , ul []
-                    [ li [] [ text "Led V2X (Vehicle-to-Everything) testing, focusing on CAM/DENM and BSM functionalities. Specialized in reverse engineering V2X communication services and developing test plans." ]
-                    , li [] [ text "Contributed to RDW authentication efforts of an In-Vehicle Infotainment (IVI) hardware, enhancing security protocols." ]
-                    , li [] [ text "Authored a concise report on Automobile Hacking, improving internal understanding of key vulnerabilities." ]
+                    [ li [] [ text "Performed penetration testing based on the TARA method (ISO/SAE 21434) on UDS (ISO 14229-1) and discovered possible vulnerabilities on Yocto Linux, QNX, and Autosar based systems." ]
+                    , li [] [ text "Led SPI tesing, focusing on sniffing data by connecting exposed SPI lines and dumping data of an exposed SOIC-8 chip on an instrument cluster." ]
+                    , li [] [ text "Led V2X (Vehicle-to-Everything) testing, focusing on CAM/DENM and BSM functionalities. Specialized in reverse engineering V2X communication services and developing test plans." ]
+                    , li [] [ text "Contributed to RDW authentication efforts of an In-Vehicle Infotainment (IVI) hardware by ensuring there were no vulnerabilities on CAN/UDS and a media player on IVI." ]
                     ]
                 ]
             , li []
                 [ text "2020.10 - 2021.02: Application Developer Intern, Petner"
                 , ul []
-                    [ li [] [ text "Developed community service using Flutter framework and Ruby on Rails." ]
-                    , li [] [ text "Integrated user location tracking and remote camera sharing services using WebRTC." ]
+                    [ li [] [ text "Developed community service using Flutter and Ruby on Rails frameworks." ]
                     ]
                 ]
             , li []
@@ -141,22 +146,21 @@ ch1keenCareer =
             , li []
                 [ text "Key Projects"
                 , ul []
-                    [ li [] [ text "Automobile Hacking Report (2024): Authored a report on automobile cybersecurity focusing on modern ECU vulnerabilities." ]
-                    , li [] [ text "The Dia programming language (2024): A functional programming language focused on portability and creating statically compiled binary." ]
+                    [ li [] [ text "The Dia programming language (2024): A functional programming language focused on portability and creating statically compiled binary." ]
                     , li []
                       [ text "The "
                       , a [ href "https://wiki.ch1keen.xyz/" ] [ text "Ch1keen Wiki" ]
-                      , text "(2023): Maintaining a web service about cybersecurity and collected notable tips written in Next.js." ]
-                    , li [] [ text "DevSecOps Container Security Platform (2022): Contributed to a platform integrating image signing and vulnerability scanning in CI/CD pipelines. Most of code was written in Python." ]
-                    , li [] [ text "NFT Trading Platform (2021): Led a team of 11 to develop a secure NFT trading platform. Written in Web3.js and Solidity." ]
+                      , text "(2023): Maintaining a web site about cyber security and collected notable tips, written in Next.js." ]
+                    , li [] [ text "DevSecOps Container Security Platform (2022): A container managing platform integrating image signing and vulnerability scanning in CI/CD pipelines. Most of code was written in Python, and is open source." ]
+                    , li [] [ text "NFT Trading Platform (2021): Led a team of 11 students to suggest a secure NFT trading platform to a start up." ]
                     ]
                 ]
             ])
 
 
-ch1keenAward : Html Msg
-ch1keenAward =
-    section "Awards and Recognitions"
+ch1keenAward : CssStyling -> Html Msg
+ch1keenAward cssStyling =
+    section "Awards and Recognitions" cssStyling
         (ul []
             [ li [] [ text "4th Place, Def Con Car Hacking Village (2024)"
                     , ul []
@@ -173,9 +177,9 @@ ch1keenAward =
             ])
 
 
-ch1keenEducation : Html Msg
-ch1keenEducation =
-    section "Education & Training"
+ch1keenEducation : CssStyling -> Html Msg
+ch1keenEducation cssStyling =
+    section "Education & Training" cssStyling
         (ul []
             [ li [] [ text "2023.02: Global Cyber Security 2023 in Singapore" ]
             , li [] [ text "2022.06 - 2023.03: Best of the Best 11th - Vulnerability Analysis Track" ]
@@ -190,9 +194,9 @@ ch1keenEducation =
             ])
 
 
-ch1keenCertificate : Html Msg
-ch1keenCertificate =
-    section "Certifications"
+ch1keenCertificate : CssStyling -> Html Msg
+ch1keenCertificate cssStyling =
+    section "Certifications" cssStyling
         (ul []
             [ li [] [ text "Forth Class Amateur Radio Operator (Korea)" ]
             , li [] [ text "SQL Developer (SQLD)" ]
@@ -200,11 +204,18 @@ ch1keenCertificate =
             ])
 
 
-ch1keenVolunteer : Html Msg
-ch1keenVolunteer =
-    section "Volunteer Experience"
+ch1keenVolunteer : CssStyling -> Html Msg
+ch1keenVolunteer cssStyling =
+    section "Volunteer Experience" cssStyling
         (ul []
             [ li []
+                [ text "Open Source Contributions"
+                , ul []
+                    [ li [] [ text "Nix and Ronin: Packaged the Ruby based project 'Ronin' into the Nixpkgs." ]
+                    , li [] [ text "r2angr: Provided Proof-of-Concept code on how to decompile with angr." ]
+                    ]
+                ]
+            , li []
                 [ text "BoB Alumni Council"
                 , ul []
                     [ li [] [ text "Active member of the council, contributing to organizing workshops and alumni events." ]
@@ -228,38 +239,63 @@ ch1keenVolunteer =
             ])
 
 
-footer : Html Msg
-footer =
-    div
-        [ style "margin-top" "5rem", style "margin-bottom" "5rem"]
-        [ p footerStyle
-            [ text "Gratefully made with "
-            , a [ href "https://elm-lang.org/" ] [ text "Elm" ]
+footer : CssStyling -> Html Msg
+footer cssStyling =
+    if cssStyling == True
+    then
+        div
+            [ style "margin-top" "5rem", style "margin-bottom" "5rem"]
+            [ p footerStyle
+                [ text "Gratefully made with "
+                , a [ href "https://elm-lang.org/" ] [ text "Elm" ]
+                ]
+            , p footerStyle
+                [ text "Copyright 2024. Ch1keen all rights reserved." ]
+            , p footerStyle
+                [ text "You can "
+                , a [ href "https://github.com/Ch1keen/about" ]
+                    [ text "browse source code of this resume" ]
+                , text "." ]
+            , button
+                [ onClick TogglePageStyle ]
+                [ text "Click here to go to the PDF version of the resume." ]
             ]
-        , p footerStyle
-            [ text "Copyright 2024. Ch1keen all rights reserved." ]
-        , p footerStyle
-            [ text "You can "
-            , a [ href "https://github.com/Ch1keen/about" ]
-                [ text "browse source code of this resume" ]
-            , text "." ]
-        ]
+    else
+        div
+            [ style "page-break-before" "always"]
+            [ p []
+                [ text "This page is intended to be printed in a new page. "
+                , text "Press Ctrl+P to save the resume in PDF file, and discard this page before downloading." ]
+            , p [] [ text "Gratefully made with Elm(https://github.com/elm)." ]
+            , p [] [ text "Copyright 2024. Ch1keen all rights reserved." ]
+            , p []
+                [ text "You can visit "
+                , a [ href "https://github.com/Ch1keen/about" ]
+                    [ text "https://github.com/Ch1keen/about" ]
+                , text " to browse source code of this resume."
+                ]
+            , button
+                [ style "margin-bottom" "1rem", onClick TogglePageStyle ]
+                [ text "Click here to go back to the web publish version of the resume." ]
+            ]
 
 
-view : Model -> Html Msg
-view model =
-    div []
+
+view : CssStyling -> Html Msg
+view cssStyling =
+    div [ (if cssStyling then class "pico" else style "font-family" "Times, serif")
+        , style "zoom" "87%" ]
         [ div
-            [ class "container" ]
-            [ ch1keenTitle
-            , ch1keenProfile
-            , ch1keenCareer
-            , ch1keenAward
-            , ch1keenEducation
-            , ch1keenCertificate
-            , ch1keenVolunteer
+            [ if cssStyling then class "container" else class "" ]
+            [ ch1keenTitle cssStyling
+            , ch1keenProfile cssStyling
+            , ch1keenCareer cssStyling
+            , ch1keenVolunteer cssStyling
+            , ch1keenAward cssStyling
+            , ch1keenEducation cssStyling
+            , ch1keenCertificate cssStyling
             ]
         , hr [ style "border-color" slate_100 ] []
-        , footer
+        , footer cssStyling
         ]
 
