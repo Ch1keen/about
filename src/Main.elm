@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, div, text, button, hr, p, a, h1, h2, ul, li, img, span)
+import Html exposing (..)
 import Html.Attributes exposing (class, style, href, src, width, height)
 import Html.Events exposing (onClick)
 
@@ -213,6 +213,17 @@ ch1keenVolunteer cssStyling =
     section "Volunteer Experience" cssStyling
         (ul []
             [ li []
+                [ text "Soksok Camp(쏙쏙캠프) by Ministry of Education (Korea)"
+                , ul []
+                    [ li [] [ text "Each university club goes to a middle school or a high school and teaches to the student. My club went to a middle school in the Daejeon city in the summer of 2018. It was an education charity project by the Ministry of Education of Korea."
+                    , li [] [ text "My club taught basic computer science and security to the students. One of my role was addressing the money spent by the club during the camp." ]
+                    , li [] [ text "My club got a great reputation from the students, so my club awarded "
+                            , strong [] [ text "a top prize (Minister of Education)" ]
+                            , text " in 2019."
+                            ]
+                    ]
+                ]
+            , li []
                 [ text "Open Source Contributions"
                 , ul []
                     [ li [] [ text "Nix and Ronin: Packaged the Ruby based project 'Ronin' into the Nixpkgs." ]
