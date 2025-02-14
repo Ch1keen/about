@@ -215,7 +215,7 @@ ch1keenVolunteer cssStyling =
             [ li []
                 [ text "Soksok Camp(쏙쏙캠프) by Ministry of Education (Korea)"
                 , ul []
-                    [ li [] [ text "Each university club goes to a middle school or a high school and teaches to the student. My club went to a middle school in the Daejeon city in the summer of 2018. It was an education charity project by the Ministry of Education of Korea."
+                    [ li [] [ text "Each university club goes to a middle school or a high school and teaches to the student. My club went to a middle school in the Daejeon city in the summer of 2018. It was an education charity project by the Ministry of Education of Korea." ]
                     , li [] [ text "My club taught basic computer science and security to the students. One of my role was addressing the money spent by the club during the camp." ]
                     , li [] [ text "My club got a great reputation from the students, so my club awarded "
                             , strong [] [ text "a top prize (Minister of Education)" ]
