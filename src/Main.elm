@@ -227,7 +227,7 @@ ch1keenFindings cssStyling =
     section "Vulnerability Findings" cssStyling
         (ul []
             [ li [] [ text "GHSA-wfq4-6v32-jrhq: Open Redirect in Adoptium.net" ]
-            --
+            , li [] [ text "Note: Two more vulnerability have been reported to MITRE." ]
             ])
 
 
