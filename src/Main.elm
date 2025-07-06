@@ -222,6 +222,15 @@ ch1keenCertificate cssStyling =
             ])
 
 
+ch1keenFindings : CssStyling -> Html Msg
+ch1keenFindings cssStyling =
+    section "Vulnerability Findings" cssStyling
+        (ul []
+            [ li [] [ text "GHSA-wfq4-6v32-jrhq: Open Redirect in Adoptium.net" ]
+            --
+            ])
+
+
 ch1keenVolunteer : CssStyling -> Html Msg
 ch1keenVolunteer cssStyling =
     section "Volunteer Experience" cssStyling
@@ -319,6 +328,7 @@ view cssStyling =
             [ ch1keenTitle cssStyling
             , ch1keenProfile cssStyling
             , ch1keenCareer cssStyling
+            , ch1keenFindings cssStyling
             , ch1keenVolunteer cssStyling
             , ch1keenAward cssStyling
             , ch1keenEducation cssStyling
