@@ -151,6 +151,19 @@ ch1keenCareer cssStyling =
                       [ text "The "
                       , a [ href "https://wiki.ch1keen.xyz/" ] [ text "Ch1keen Wiki" ]
                       , text "(2023): Maintaining a web site about cyber security and collected notable tips, written in Next.js." ]
+                    , li []
+                      -- The Hacking Championship Jr. 2023 (DSEC2023 in Daegu)
+                      -- 제9회 정보보안 경진대회 (Ministry of Education)
+                      [ text "4 CTF Challenges in two CTFs (2023): Made 2 Cryptography, 1 Pwn, 1 Web challenges. This project was a collaboration with "
+                      , a [ href "https://www.stealien.com/en/main" ] [ text "STEALIEN" ]
+                      , text "."
+                      ]
+                    , li []
+                      -- BISC CTF 2023
+                      [ text "A Pwnable CTF Challenge (2023): Inspired by "
+                      , a [ href "https://nvd.nist.gov/vuln/detail/CVE-2018-14665" ] [ text "CVE-2018-14665" ]
+                      , text "."
+                      ]
                     , li [] [ text "DevSecOps Container Security Platform (2022): A container managing platform integrating image signing and vulnerability scanning in CI/CD pipelines. Most of code was written in Python, and is open source." ]
                     , li [] [ text "NFT Trading Platform (2021): Led a team of 11 students to suggest a secure NFT trading platform to a start up." ]
                     ]
@@ -162,7 +175,8 @@ ch1keenAward : CssStyling -> Html Msg
 ch1keenAward cssStyling =
     section "Awards and Recognitions" cssStyling
         (ul []
-            [ li [] [ text "4th Place, Def Con Car Hacking Village (2024)"
+            [ li [] [ text "2025 South Jeolla Province Web Security Competition - Excellence Award" ]
+            , li [] [ text "4th Place, Def Con Car Hacking Village (2024)"
                     , ul []
                         [ li [] [ text "Collaborated with the AutoCrypt Red Team, focusing on RAMN challenges." ]
                         , li [] [ text "Provided reverse engineering insights and identified necessary tools for challenge solutions." ]
@@ -215,10 +229,10 @@ ch1keenVolunteer cssStyling =
             [ li []
                 [ text "Soksok Camp(쏙쏙캠프) by Ministry of Education (Korea)"
                 , ul []
-                    [ li [] [ text "Each university club goes to a middle school or a high school and teaches to the student. My club went to a middle school in the Daejeon city in the summer of 2018. It was an education charity project by the Ministry of Education of Korea."
+                    [ li [] [ text "Each university club goes to a middle school or a high school and teaches to the student. My club went to a middle school in the Daejeon city in the summer of 2018. It was an education charity project by the Ministry of Education of Korea." ]
                     , li [] [ text "My club taught basic computer science and security to the students. One of my role was addressing the money spent by the club during the camp." ]
                     , li [] [ text "My club got a great reputation from the students, so my club awarded "
-                            , strong [] [ text "a top prize (Minister of Education)" ]
+                            , strong [] [ text "a top prize (Minister of Education's)" ]
                             , text " in 2019."
                             ]
                     ]
