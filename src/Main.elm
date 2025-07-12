@@ -106,8 +106,13 @@ section title cssStyling body =
 ch1keenProfile : CssStyling -> Html Msg
 ch1keenProfile cssStyling =
     section "Profile" cssStyling
-        (p []
-            [ text "Highly motivated and team-friendly individual with diverse experiences not only in Automotive penetration testing, but also in web hacking, and collaborative projects. Proficient in various programming languages, frameworks, and tools. Experienced in leading teams and contributing to open-source projects." ])
+        (div []
+            [ p []
+                [ text "Highly motivated and team-friendly individual with diverse experiences not only in Automotive penetration testing, but also in web hacking, and collaborative projects. Proficient in various programming languages, frameworks, and tools. Experienced in leading teams and contributing to open-source projects." ]
+            , p [] [ strong [] [ text "Keyword: " ]
+                , text "Automotive, Penetration Testing, ISO/SAE 14229, Cyber Security"
+            ]
+        ])
 
 
 ch1keenCareer : CssStyling -> Html Msg
@@ -118,7 +123,7 @@ ch1keenCareer cssStyling =
                 [ text "2023.10 - present: Automotive Penetration/Security Tester, AutoCrypt Red Team"
                 , ul []
                     [ li [] [ text "Performed penetration testing on various ECUs including infortainments, an instrumental cluster, and a telematic ECU, based on the TARA method (ISO/SAE 21434) and discovered possible vulnerabilities on Yocto Linux, QNX, and AUTOSAR based systems." ]
-                    , li [] [ text "I reported 10 issues in 5 ECUs. 5 issues were classified as incidents, and reported to CEO of Hyundai Mobis (Problems from Past Projects). It was a collaboration project with Hyundai Mobis." ]
+                    , li [] [ text "I reported 11 issues in 5 ECUs. 5 issues were classified as incidents, and reported to CEO of Hyundai Mobis (Problems from Past Projects). It was a collaboration project with Hyundai Mobis." ]
                     , li [] [ text "Led SPI tesing, focusing on sniffing data by connecting exposed SPI lines and dumping data of an exposed SOIC-8 chip on an instrument cluster." ]
                     , li [] [ text "Led V2X (Vehicle-to-Everything) testing, focusing on CAM/DENM and BSM functionalities. Specialized in reverse engineering V2X communication services and developing test plans." ]
                     , li [] [ text "Contributed to Vehicle Type Approval efforts of an In-Vehicle Infotainment (IVI) hardware by ensuring there were no vulnerabilities on CAN/UDS (ISO/SAE 14229-1) and a media player on IVI." ]
