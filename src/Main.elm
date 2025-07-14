@@ -120,7 +120,9 @@ ch1keenCareer cssStyling =
     section "Career" cssStyling
         (ul []
             [ li []
-                [ text "2023.10 - present: Automotive Penetration/Security Tester, AutoCrypt Red Team"
+                [ text "2023.10 - present: Automotive Penetration/Security Tester, "
+                , a [ href "https://autocrypt.io" ] [ text "AutoCrypt" ]
+                , text " Red Team"
                 , ul []
                     [ li [] [ text "Performed penetration testing on various ECUs including infortainments, an instrumental cluster, and a telematic ECU, based on the TARA method (ISO/SAE 21434) and discovered possible vulnerabilities on Yocto Linux, QNX, and AUTOSAR based systems." ]
                     , li [] [ text "I reported 11 issues in 5 ECUs. 5 issues were classified as incidents, and reported to CEO of Hyundai Mobis (Problems from Past Projects). It was a collaboration project with Hyundai Mobis." ]
@@ -152,11 +154,14 @@ ch1keenCareer cssStyling =
             , li []
                 [ text "Key Projects"
                 , ul []
-                    [ li [] [ text "The Dia programming language (2024): A functional programming language focused on portability and creating statically compiled binary." ]
+                    [ li []
+                      [ text "The "
+                      , a [ href "https://github.com/dia-language" ] [ text "Dia programming language" ]
+                      , text " (2024): A functional programming language focused on portability and simplicity." ]
                     , li []
                       [ text "The "
                       , a [ href "https://wiki.ch1keen.xyz/" ] [ text "Ch1keen Wiki" ]
-                      , text "(2023): Maintaining a web site about cyber security and collected notable tips, written in Next.js." ]
+                      , text " (2023): Maintaining a web site about cyber security and collected notable tips, written in Next.js." ]
                     , li []
                       -- The Hacking Championship Jr. 2023 (DSEC2023 in Daegu)
                       -- 제9회 정보보안 경진대회 (Ministry of Education)
@@ -166,7 +171,8 @@ ch1keenCareer cssStyling =
                       ]
                     , li []
                       -- BISC CTF 2023
-                      [ text "A Pwnable CTF Challenge (2023): Inspired by "
+                      [ a [ href "https://dreamhack.io/wargame/challenges/1003" ] [ text "A Pwnable CTF Challenge" ]
+                      , text " (2023): Inspired by "
                       , a [ href "https://nvd.nist.gov/vuln/detail/CVE-2018-14665" ] [ text "CVE-2018-14665" ]
                       , text "."
                       ]
