@@ -1,4 +1,4 @@
-module Main exposing (..)
+module ResumeKor exposing (..)
 
 import Browser
 import Html exposing (..)
@@ -6,12 +6,6 @@ import Html.Attributes exposing (class, style, href, src, width, height)
 import Html.Events exposing (onClick)
 
 import ResumeModel exposing (..)
-import ResumeKor exposing (ch1keenCareerKor)
-
--- MAIN
-
-main =
-    Browser.sandbox { init = init, update = update, view = view }
 
 -- MODEL
 
@@ -32,13 +26,6 @@ update : Msg -> CssStyling -> CssStyling
 update msg model = xor True model
 
 -- STYLE
-
-footerStyle : List (Html.Attribute Msg)
-footerStyle =
-    [ style "color" slate_300
-    , style "text-align" "center"
-    ]
-
 
 slate_100 : String
 slate_100 =
@@ -63,32 +50,6 @@ divider =
     hr [ style "border-color" slate_300 ] []
 
 
-contactLine : Html Msg -> String -> String -> Html Msg
-contactLine title url label =
-    p
-        [ style "text-align" "center" ]
-        [ title
-        , span [ style "width" "1rem", style "display" "inline-block" ] []
-        , a [ href url ] [ text label ]
-        ]
-
-
-ch1keenTitle : CssStyling -> Html Msg
-ch1keenTitle cssStyling =
-    let
-        titleStyling =
-            if cssStyling
-            then [ style "padding-top" "48px", style "padding-bottom" "24px" ]
-            else [ ]
-    in
-        div
-            titleStyling
-            [ h1 [ style "text-align" "center" ] [ text "Han Jeongjun" ]
-            , contactLine (text "\u{1f4e7}") "mailto:hire-me@ch1keen.xyz" "hire-me@ch1keen.xyz"
-            , contactLine (img [ src "assets/github-mark.svg", width 24, height 24 ] []) "https://github.com/Ch1keen" "github.com/Ch1keen"
-            ]
-
-
 section : String -> CssStyling -> Html Msg -> Html Msg
 section title cssStyling body =
     if cssStyling
@@ -106,8 +67,8 @@ section title cssStyling body =
             [ h2 [ style "margin-bottom" "2px"] [ text title ], divider, body ]
 
 
-ch1keenProfile : CssStyling -> Html Msg
-ch1keenProfile cssStyling =
+ch1keenProfileKor : CssStyling -> Html Msg
+ch1keenProfileKor cssStyling =
     section "Profile" cssStyling
         (div []
             [ p []
@@ -118,18 +79,18 @@ ch1keenProfile cssStyling =
         ])
 
 
-ch1keenCareer : CssStyling -> Html Msg
-ch1keenCareer cssStyling =
+ch1keenCareerKor : CssStyling -> Html Msg
+ch1keenCareerKor cssStyling =
     section "Career" cssStyling
         (ul []
             [ li []
-                [ text "2023.10 - present: Automotive Penetration/Security Tester, "
-                , a [ href "https://autocrypt.io" ] [ text "AutoCrypt" ]
-                , text " Red Team"
+                [ text "2023.10 - present: 제어기 모의 해킹, "
+                , a [ href "https://autocrypt.io" ] [ text "(주) 아우토크립트" ]
+                , text " 레드팀"
                 , ul []
                     [ li [] [ text "Performed penetration testing on various ECUs including infortainments, an instrumental cluster, and a telematic ECU, based on the TARA method (ISO/SAE 21434) and discovered possible vulnerabilities on Yocto Linux, QNX, and AUTOSAR based systems." ]
                     , li [] [ text "I reported 11 issues in 5 ECUs. 5 issues were classified as incidents, and reported to CEO of Hyundai Mobis (Problems from Past Projects). It was a collaboration project with Hyundai Mobis." ]
-                    , li [] [ text "Led SPI tesing, focusing on sniffing data by connecting exposed SPI lines and dumping data of an exposed SOIC-8 chip on an instrument cluster." ]
+                    , li [] [ text "클러스터 제어기 기판 위에 노출된 SOIC-8 칩 SPI 라인에 장치를 연결하여 펌웨어 덤프를 시도하는 테스트를 수행." ]
                     , li [] [ text "Led V2X (Vehicle-to-Everything) testing, focusing on CAM/DENM and BSM functionalities. Specialized in reverse engineering V2X communication services and developing test plans." ]
                     , li [] [ text "Contributed to Vehicle Type Approval efforts of an In-Vehicle Infotainment (IVI) hardware by ensuring there were no vulnerabilities on CAN/UDS (ISO/SAE 14229-1) and a media player on IVI." ]
                     ]
@@ -158,26 +119,24 @@ ch1keenCareer cssStyling =
                 [ text "Key Projects"
                 , ul []
                     [ li []
-                      [ text "The "
-                      , a [ href "https://github.com/dia-language" ] [ text "Dia programming language" ]
-                      , text " (2024): A functional programming language focused on portability and simplicity." ]
+                      [ a [ href "https://github.com/dia-language" ] [ text "Dia programming language" ]
+                      , text " (2024): 강 타입(Strong Typed) 함수형 프로그래밍 언어 컴파일러(Dia -> C++) 프로젝트." ]
                     , li []
-                      [ text "The "
-                      , a [ href "https://wiki.ch1keen.xyz/" ] [ text "Ch1keen Wiki" ]
-                      , text " (2023): Maintaining a web site about cyber security and collected notable tips, written in Next.js." ]
+                      [ a [ href "https://wiki.ch1keen.xyz/" ] [ text "Ch1keen Wiki" ]
+                      , text " (2023): 차량 보안을 비롯한 여러 보안 관련 정보를 기록하고 전달하기 위해 Next.js를 이용한 사이트 운영 중." ]
                     , li []
                       -- The Hacking Championship Jr. 2023 (DSEC2023 in Daegu)
                       -- 제9회 정보보안 경진대회 (Ministry of Education)
-                      [ text "4 CTF Challenges in two CTFs (2023): Made 2 Cryptography, 1 Pwn, 1 Web challenges. This project was a collaboration with "
+                      [ text "CTF 문제 출제 (대구 DSEC2023, 제9회 정보보안 경진대회): 2 Cryptography, 1 Pwn, 1 Web 문제 출제. "
                       , a [ href "https://www.stealien.com/en/main" ] [ text "STEALIEN" ]
-                      , text "."
+                      , text "과의 협업의 일환."
                       ]
                     , li []
                       -- BISC CTF 2023
-                      [ a [ href "https://dreamhack.io/wargame/challenges/1003" ] [ text "A Pwnable CTF Challenge" ]
-                      , text " (2023): Inspired by "
+                      [ a [ href "https://dreamhack.io/wargame/challenges/1003" ] [ text "CTF 문제 1개 출제 (BISC CTF)" ]
+                      , text " (2023): "
                       , a [ href "https://nvd.nist.gov/vuln/detail/CVE-2018-14665" ] [ text "CVE-2018-14665" ]
-                      , text "."
+                      , text "에서 영감을 받았으며, '재밌다'는 평가가 있었음."
                       ]
                     , li [] [ text "DevSecOps Container Security Platform (2022): A container managing platform integrating image signing and vulnerability scanning in CI/CD pipelines. Most of code was written in Python, and is open source." ]
                     , li [] [ text "NFT Trading Platform (2021): Led a team of 11 students to suggest a secure NFT trading platform to a start up." ]
@@ -186,23 +145,23 @@ ch1keenCareer cssStyling =
             ])
 
 
-ch1keenAward : CssStyling -> Html Msg
-ch1keenAward cssStyling =
+ch1keenAwardKor : CssStyling -> Html Msg
+ch1keenAwardKor cssStyling =
     section "Awards and Recognitions" cssStyling
         (ul []
-            [ li [] [ text "2025 South Jeolla Province Web Security Competition - Excellence Award" ]
-            , li [] [ text "4th Place, Def Con Car Hacking Village (2024)"
+            [ li [] [ text "2025 전라남도 웹보안 경진대회 - 우수상" ]
+            , li [] [ text "Def Con Car Hacking Village (2024) - 종합 4위"
                     , ul []
-                        [ li [] [ text "Collaborated with the AutoCrypt Red Team, focusing on RAMN challenges." ]
-                        , li [] [ text "Provided reverse engineering insights and identified necessary tools for challenge solutions." ]
-                        , li [] [ text "Facilitated team communication with event staff to obtain critical hints and guidance." ]
+                        [ li [] [ text "AutoCrypt 레드팀 팀원들과 출전하였고, RAMN 도구를 이용한 문제에 집중." ]
+                        , li [] [ text "리버스 엔지니어링을 통해 문제 해결의 실마리를 제공하였고, 문제 해결에 필요한 적절한 도구를 찾아내었음." ]
+                        , li [] [ text "토요타 US 출신 출제진들을 비롯하여 타 문제 스태프들과도 소통하여 여러 힌트를 이끌어내어 팀에 기여함." ]
                         ]
                     ]
-            , li [] [ text "2023 Brainhack CDDC 2023 CTF (Singapore) - Final 20th Place" ]
-            , li [] [ text "2023 Hacktheon Sejong (Korea) - Final 21th Place" ]
-            , li [] [ text "2021 KOSPO Web Security Competition - Encouragement Award" ]
-            , li [] [ text "2020 TS Security Competition 'Find Security holes' - Excellence Award" ]
-            , li [] [ text "Blood Donation Merit Award (Silver)" ]
+            , li [] [ text "2023 Brainhack CDDC 2023 CTF (싱가포르) - 본선 20위" ]
+            , li [] [ text "2023 핵테온 세종 - 본선 21위" ]
+            , li [] [ text "2021 KOSPO 웹보안 경진대회 - 장려상" ]
+            , li [] [ text "2020 TS 보안 경진대회 '보안 허점을 찾아라' - 우수상" ]
+            , li [] [ text "헌혈유공패 은장" ]
             ])
 
 
@@ -210,14 +169,14 @@ ch1keenEducation : CssStyling -> Html Msg
 ch1keenEducation cssStyling =
     section "Education & Training" cssStyling
         (ul []
-            [ li [] [ text "2023.02: Global Cyber Security 2023 in Singapore" ]
-            , li [] [ text "2022.06 - 2023.03: Best of the Best 11th - Vulnerability Analysis Track" ]
+            [ li [] [ text "2023.02: Global Cyber Security 2023 교육 프로그램의 일환으로 싱가포르에서 연수함." ]
+            , li [] [ text "2022.06 - 2023.03: KITRI Best of the Best - 11기 취약점 분석 트랙" ]
             , li []
-                [ text "2017.03 - 2023.02: Kyonggi University"
+                [ text "2017.03 - 2023.02: 경기대학교"
                 , ul []
-                    [ li [] [ text "Bachelor of Convergence Security" ]
-                    , li [] [ text "Bachelor of Electronics Engineering" ]
-                    , li [] [ text "(GPA: 3.91/4.5)" ]
+                    [ li [] [ text "융합보안학과" ]
+                    , li [] [ text "전자공학과" ]
+                    , li [] [ text "(학점 3.91/4.5)" ]
                     ]
                 ]
             ])
@@ -227,13 +186,13 @@ ch1keenCertificate : CssStyling -> Html Msg
 ch1keenCertificate cssStyling =
     section "Certifications" cssStyling
         (ul []
-            [ li [] [ text "Forth Class Amateur Radio Operator (Korea)" ]
+            [ li [] [ text "아마추어무선기사 제4급" ]
               -- Information of SQL Developer
               -- vhttps://www.dataq.or.kr/www/sub/a_04.do
             , li [] [ text "SQL Developer (SQLD)" ]
               -- Information of 정보처리기사 (Engineer Information Processing)
               -- https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320&gbnn=gbnSubtab2
-            , li [] [ text "Engineer Information Processing (정보처리기사)" ]
+            , li [] [ text "정보처리기사" ]
             ])
 
 
@@ -290,73 +249,4 @@ ch1keenVolunteer cssStyling =
                     ]
                 ]
             ])
-
-
-footer : CssStyling -> Html Msg
-footer cssStyling =
-    if cssStyling == True
-    then
-        div
-            [ style "margin-top" "5rem", style "margin-bottom" "5rem"]
-            [ p footerStyle
-                [ text "Gratefully made with "
-                , a [ href "https://elm-lang.org/" ] [ text "Elm" ]
-                ]
-            , p footerStyle
-                [ text "Copyright 2024. Ch1keen all rights reserved." ]
-            , p footerStyle
-                [ text "You can "
-                , a [ href "https://github.com/Ch1keen/about" ]
-                    [ text "browse source code of this resume" ]
-                , text "." ]
-            , button
-                [ onClick TogglePageStyle ]
-                [ text "Click here to go to the PDF version of the resume." ]
-            ]
-    else
-        div
-            [ style "page-break-before" "always"]
-            [ p []
-                [ text "This page is intended to be printed in a new page. "
-                , text "Press Ctrl+P to save the resume in PDF file, and discard this page before downloading." ]
-            , p [] [ text "Gratefully made with Elm(https://github.com/elm)." ]
-            , p [] [ text "Copyright 2024. Ch1keen all rights reserved." ]
-            , p []
-                [ text "You can visit "
-                , a [ href "https://github.com/Ch1keen/about" ]
-                    [ text "https://github.com/Ch1keen/about" ]
-                , text " to browse source code of this resume."
-                ]
-            , button
-                [ style "margin-bottom" "1rem", onClick TogglePageStyle ]
-                [ text "Click here to go back to the web publish version of the resume." ]
-            ]
-
-
-
-view : CssStyling -> Html Msg
-view cssStyling =
-    div [ (if cssStyling then class "pico" else style "font-family" "Times, serif")
-        , style "zoom" "87%" ]
-        [ div
-            [ if cssStyling then class "container" else class "" ]
-            [ ch1keenTitle cssStyling
-            , ch1keenProfile cssStyling
-            , ch1keenCareer cssStyling
-            , ch1keenFindings cssStyling
-            , ch1keenVolunteer cssStyling
-            , ch1keenAward cssStyling
-            , ch1keenEducation cssStyling
-            , ch1keenCertificate cssStyling
-            ]
-        , hr [ style "border-color" slate_100 ] []
-        --, div
-        --    [ style "page-break-before" "always", if cssStyling then class "container" else class "" ]
-        --    [ ch1keenTitle cssStyling
-        --    , ch1keenProfile cssStyling
-        --    , ch1keenCareerKor cssStyling
-        --    ]
-        --, hr [ style "border-color" slate_100 ] []
-        , footer cssStyling
-        ]
 
