@@ -7,23 +7,6 @@ import Html.Events exposing (onClick)
 
 import ResumeModel exposing (..)
 
--- MODEL
-
-type alias CssStyling =
-    Bool
-
-
-init : CssStyling
-init =
-    True
-
--- UPDATE
-
---type Msg
---    = TogglePageStyle
-
-update : Msg -> CssStyling -> CssStyling
-update msg model = xor True model
 
 -- STYLE
 
@@ -50,9 +33,9 @@ divider =
     hr [ style "border-color" slate_300 ] []
 
 
-section : String -> CssStyling -> Html Msg -> Html Msg
-section title cssStyling body =
-    if cssStyling
+section : String -> Context -> Html Msg -> Html Msg
+section title context body =
+    if context.isInteractable
     then
         div
             [ style "margin" "5rem auto"
@@ -67,9 +50,9 @@ section title cssStyling body =
             [ h2 [ style "margin-bottom" "2px"] [ text title ], divider, body ]
 
 
-ch1keenProfileKor : CssStyling -> Html Msg
-ch1keenProfileKor cssStyling =
-    section "Profile" cssStyling
+ch1keenProfileKor : Context -> Html Msg
+ch1keenProfileKor context =
+    section "Profile" context
         (div []
             [ p []
                 [ text "Highly motivated and team-friendly individual with diverse experiences not only in Automotive penetration testing, but also in web hacking, and collaborative projects. Proficient in various programming languages, frameworks, and tools. Experienced in leading teams and contributing to open-source projects." ]
@@ -79,9 +62,9 @@ ch1keenProfileKor cssStyling =
         ])
 
 
-ch1keenCareerKor : CssStyling -> Html Msg
-ch1keenCareerKor cssStyling =
-    section "Career" cssStyling
+ch1keenCareerKor : Context -> Html Msg
+ch1keenCareerKor context =
+    section "Career" context
         (ul []
             [ li []
                 [ text "2023.10 - present: 제어기 모의 해킹, "
@@ -145,9 +128,9 @@ ch1keenCareerKor cssStyling =
             ])
 
 
-ch1keenAwardKor : CssStyling -> Html Msg
-ch1keenAwardKor cssStyling =
-    section "Awards and Recognitions" cssStyling
+ch1keenAwardKor : Context -> Html Msg
+ch1keenAwardKor context =
+    section "Awards and Recognitions" context
         (ul []
             [ li [] [ text "2025 전라남도 웹보안 경진대회 - 우수상" ]
             , li [] [ text "Def Con Car Hacking Village (2024) - 종합 4위"
@@ -165,9 +148,9 @@ ch1keenAwardKor cssStyling =
             ])
 
 
-ch1keenEducationKor : CssStyling -> Html Msg
-ch1keenEducationKor cssStyling =
-    section "Education & Training" cssStyling
+ch1keenEducationKor : Context -> Html Msg
+ch1keenEducationKor context =
+    section "Education & Training" context
         (ul []
             [ li [] [ text "2023.02: Global Cyber Security 2023 교육 프로그램의 일환으로 싱가포르에서 연수함." ]
             , li [] [ text "2022.06 - 2023.03: KITRI Best of the Best - 11기 취약점 분석 트랙" ]
@@ -182,9 +165,9 @@ ch1keenEducationKor cssStyling =
             ])
 
 
-ch1keenCertificateKor : CssStyling -> Html Msg
-ch1keenCertificateKor cssStyling =
-    section "Certifications" cssStyling
+ch1keenCertificateKor : Context -> Html Msg
+ch1keenCertificateKor context =
+    section "Certifications" context
         (ul []
             [ li [] [ text "아마추어무선기사 제4급" ]
               -- Information of SQL Developer
@@ -196,18 +179,18 @@ ch1keenCertificateKor cssStyling =
             ])
 
 
-ch1keenFindings : CssStyling -> Html Msg
-ch1keenFindings cssStyling =
-    section "Vulnerability Findings" cssStyling
+ch1keenFindings : Context -> Html Msg
+ch1keenFindings context =
+    section "Vulnerability Findings" context
         (ul []
             [ li [] [ text "GHSA-wfq4-6v32-jrhq: Open Redirect in Adoptium.net" ]
             , li [] [ text "Note: Two more vulnerability have been reported to MITRE." ]
             ])
 
 
-ch1keenVolunteerKor : CssStyling -> Html Msg
-ch1keenVolunteerKor cssStyling =
-    section "Volunteer Experience" cssStyling
+ch1keenVolunteerKor : Context -> Html Msg
+ch1keenVolunteerKor context =
+    section "Volunteer Experience" context
         (ul []
             [ li []
                 [ text "Soksok Camp(쏙쏙캠프) by Ministry of Education (Korea)"

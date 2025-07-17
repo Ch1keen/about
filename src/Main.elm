@@ -2,8 +2,8 @@ module Main exposing (..)
 
 import Browser
 import Html exposing (..)
-import Html.Attributes exposing (class, style, href, src, width, height, type_, name, attribute)
-import Html.Events exposing (onClick)
+import Html.Attributes exposing (..)
+import Html.Events exposing (onClick, onCheck, onMouseEnter, onMouseLeave)
 import List
 import Dict
 
@@ -15,34 +15,40 @@ import ResumeKor exposing (..)
 main =
     Browser.sandbox { init = init, update = update, view = view }
 
--- MODEL
-
-type alias Context =
-    { isPrintable : Bool
-    , isEnglish : Bool
-    , ctrlerOpacity : String
+init : Context
+init =
+    { isInteractable = True
+    , engVisible = True
+    , korVisible = False
+    , ctrlerOpacity = "35%"
     }
 
 
-init : Context
-init = Dict.fromList
-    [ ( "isPrintable", True )
-    , ( "isEnglish", True )
-    , ( "ctrlerOpacity", "40%")
-    ]
-
 -- UPDATE
 
---type Msg
---    = TogglePageStyle
-
 update : Msg -> Context -> Context
-update msg model =
+update msg context =
     case msg of
-        TogglePageStyle ->
-            Dict.update "isPrintable"
-            (\v -> Just (xor v True))
-            model
+        PageStyleToPrintable ->
+            { context | isInteractable = False }
+        PageStyleToInteractable ->
+            { context | isInteractable = True }
+        KoreaResumeVisible ->
+            { context | korVisible = True }
+        KoreaResumeInvisible ->
+            if context.engVisible == False
+            then context
+            else { context | korVisible = False }
+        EnglishResumeVisible ->
+            { context | engVisible = True }
+        EnglishResumeInvisible ->
+            if context.korVisible == False
+            then context
+            else { context | engVisible = False }
+        FocusController ->
+            { context | ctrlerOpacity = "100%" }
+        ZoneOutController ->
+            { context | ctrlerOpacity = "35%" }
 
 -- STYLE
 
@@ -90,7 +96,7 @@ ch1keenTitle : Context -> Html Msg
 ch1keenTitle context =
     let
         titleStyling =
-            if context
+            if context.isInteractable
             then [ style "padding-top" "48px", style "padding-bottom" "24px" ]
             else [ ]
     in
@@ -104,7 +110,7 @@ ch1keenTitle context =
 
 section : String -> Context -> Html Msg -> Html Msg
 section title context body =
-    if context
+    if context.isInteractable
     then
         div
             [ style "margin" "5rem auto"
@@ -307,7 +313,7 @@ ch1keenVolunteer context =
 
 footer : Context -> Html Msg
 footer context =
-    if context == True
+    if context.isInteractable == True
     then
         div
             [ style "margin-top" "5rem", style "margin-bottom" "5rem"]
@@ -323,7 +329,7 @@ footer context =
                     [ text "browse source code of this resume" ]
                 , text "." ]
             , button
-                [ onClick TogglePageStyle ]
+                [ onClick PageStyleToPrintable ]
                 [ text "Click here to go to the PDF version of the resume." ]
             ]
     else
@@ -341,7 +347,7 @@ footer context =
                 , text " to browse source code of this resume."
                 ]
             , button
-                [ style "margin-bottom" "1rem", onClick TogglePageStyle ]
+                [ style "margin-bottom" "1rem", onClick PageStyleToInteractable ]
                 [ text "Click here to go back to the web publish version of the resume." ]
             ]
 
@@ -349,55 +355,79 @@ footer context =
 
 view : Context -> Html Msg
 view context =
-    div [ (if context then class "pico" else style "font-family" "Times, serif")
+    div [ (if context.isInteractable then class "pico" else style "font-family" "Times, serif")
         , style "zoom" "87%" ]
         [ div
-            [ if context then class "container" else class "" ]
-            [ ch1keenTitle context
-            , ch1keenProfile context
-            , ch1keenCareer context
-            , ch1keenFindings context
-            , ch1keenVolunteer context
-            , ch1keenAward context
-            , ch1keenEducation context
-            , ch1keenCertificate context
-            ]
-        , hr [ style "border-color" slate_100 ] []
-        , div
-            [ style "page-break-before" "always", if context then class "container" else class "" ]
-            (List.map (\f->f context)
-                [ ch1keenTitle
-                , ch1keenProfile
-                , ch1keenCareerKor
-                , ch1keenFindings
-                , ch1keenVolunteerKor
-                , ch1keenAwardKor
-                , ch1keenEducationKor
-                , ch1keenCertificateKor
-                ])
+            [ if context.isInteractable then class "container" else class "" ]
+            ((if context.engVisible then
+                List.map (\f->f context)
+                    [ ch1keenTitle
+                    , ch1keenProfile
+                    , ch1keenCareer
+                    , ch1keenFindings
+                    , ch1keenVolunteer
+                    , ch1keenAward
+                    , ch1keenEducation
+                    , ch1keenCertificate
+                    ]
+            else [])
+            ++
+            (if context.korVisible then
+                List.map (\f->f context)
+                    [ ch1keenTitle
+                    , ch1keenProfile
+                    , ch1keenCareerKor
+                    , ch1keenFindings
+                    , ch1keenVolunteerKor
+                    , ch1keenAwardKor
+                    , ch1keenEducationKor
+                    , ch1keenCertificateKor
+                    ]
+            else []))
         , hr [ style "border-color" slate_100 ] []
         , fieldset
             [ style "position" "fixed"
             , style "width" "240px"
-            , style "opacity" "40%"
+            , style "opacity" context.ctrlerOpacity
             , style "background-color" "white"
             , style "bottom" "10px"
             , style "right" "10px"
-            , style "border" ("1px solid " ++ slate_100)
+            , style "border" ("2px solid " ++ slate_400)
             , style "border-radius" "16px"
+            , style "padding" "10px"
+            , class "pico"
+            , attribute "role" "group"
+            , onMouseEnter FocusController
+            , onMouseLeave ZoneOutController
             ]
             [ legend [] [ text "Resume Controller" ]
             , label []
                 [ input
-                    [ name "eng-kor", type_ "checkbox", attribute "role" "switch" ]
-                    []
-                , text "English / 한글('Korean')"
+                    [ name "english"
+                    , type_ "checkbox"
+                    , checked context.engVisible
+                    , onCheck toggleEngPage
+                    ] []
+                , text "English"
                 ]
             , label []
                 [ input
-                    [ name "printable", type_ "checkbox", attribute "role" "switch" ]
-                    []
-                , text "Interactive / Printable"
+                    [ name "korean"
+                    , type_ "checkbox"
+                    , checked context.korVisible
+                    , onCheck toggleKorPage
+                    ] []
+                , text "한글('Korean')"
+                ]
+            , label []
+                [ input
+                    [ name "printable"
+                    , type_ "checkbox"
+                    , attribute "role" "switch"
+                    , checked context.isInteractable
+                    , onCheck pageStyleToggle
+                    ] []
+                , text "Printable / Interactive"
                 ]
             ]
         , footer context
