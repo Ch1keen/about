@@ -2,11 +2,13 @@ module Main exposing (..)
 
 import Browser
 import Html exposing (..)
-import Html.Attributes exposing (class, style, href, src, width, height)
+import Html.Attributes exposing (class, style, href, src, width, height, type_, name, attribute)
 import Html.Events exposing (onClick)
+import List
+import Dict
 
 import ResumeModel exposing (..)
-import ResumeKor exposing (ch1keenCareerKor)
+import ResumeKor exposing (..)
 
 -- MAIN
 
@@ -15,21 +17,32 @@ main =
 
 -- MODEL
 
-type alias CssStyling =
-    Bool
+type alias Context =
+    { isPrintable : Bool
+    , isEnglish : Bool
+    , ctrlerOpacity : String
+    }
 
 
-init : CssStyling
-init =
-    True
+init : Context
+init = Dict.fromList
+    [ ( "isPrintable", True )
+    , ( "isEnglish", True )
+    , ( "ctrlerOpacity", "40%")
+    ]
 
 -- UPDATE
 
 --type Msg
 --    = TogglePageStyle
 
-update : Msg -> CssStyling -> CssStyling
-update msg model = xor True model
+update : Msg -> Context -> Context
+update msg model =
+    case msg of
+        TogglePageStyle ->
+            Dict.update "isPrintable"
+            (\v -> Just (xor v True))
+            model
 
 -- STYLE
 
@@ -73,11 +86,11 @@ contactLine title url label =
         ]
 
 
-ch1keenTitle : CssStyling -> Html Msg
-ch1keenTitle cssStyling =
+ch1keenTitle : Context -> Html Msg
+ch1keenTitle context =
     let
         titleStyling =
-            if cssStyling
+            if context
             then [ style "padding-top" "48px", style "padding-bottom" "24px" ]
             else [ ]
     in
@@ -89,9 +102,9 @@ ch1keenTitle cssStyling =
             ]
 
 
-section : String -> CssStyling -> Html Msg -> Html Msg
-section title cssStyling body =
-    if cssStyling
+section : String -> Context -> Html Msg -> Html Msg
+section title context body =
+    if context
     then
         div
             [ style "margin" "5rem auto"
@@ -106,9 +119,9 @@ section title cssStyling body =
             [ h2 [ style "margin-bottom" "2px"] [ text title ], divider, body ]
 
 
-ch1keenProfile : CssStyling -> Html Msg
-ch1keenProfile cssStyling =
-    section "Profile" cssStyling
+ch1keenProfile : Context -> Html Msg
+ch1keenProfile context =
+    section "Profile" context
         (div []
             [ p []
                 [ text "Highly motivated and team-friendly individual with diverse experiences not only in Automotive penetration testing, but also in web hacking, and collaborative projects. Proficient in various programming languages, frameworks, and tools. Experienced in leading teams and contributing to open-source projects." ]
@@ -118,9 +131,9 @@ ch1keenProfile cssStyling =
         ])
 
 
-ch1keenCareer : CssStyling -> Html Msg
-ch1keenCareer cssStyling =
-    section "Career" cssStyling
+ch1keenCareer : Context -> Html Msg
+ch1keenCareer context =
+    section "Career" context
         (ul []
             [ li []
                 [ text "2023.10 - present: Automotive Penetration/Security Tester, "
@@ -186,9 +199,9 @@ ch1keenCareer cssStyling =
             ])
 
 
-ch1keenAward : CssStyling -> Html Msg
-ch1keenAward cssStyling =
-    section "Awards and Recognitions" cssStyling
+ch1keenAward : Context -> Html Msg
+ch1keenAward context =
+    section "Awards and Recognitions" context
         (ul []
             [ li [] [ text "2025 South Jeolla Province Web Security Competition - Excellence Award" ]
             , li [] [ text "4th Place, Def Con Car Hacking Village (2024)"
@@ -206,9 +219,9 @@ ch1keenAward cssStyling =
             ])
 
 
-ch1keenEducation : CssStyling -> Html Msg
-ch1keenEducation cssStyling =
-    section "Education & Training" cssStyling
+ch1keenEducation : Context -> Html Msg
+ch1keenEducation context =
+    section "Education & Training" context
         (ul []
             [ li [] [ text "2023.02: Global Cyber Security 2023 in Singapore" ]
             , li [] [ text "2022.06 - 2023.03: Best of the Best 11th - Vulnerability Analysis Track" ]
@@ -217,15 +230,15 @@ ch1keenEducation cssStyling =
                 , ul []
                     [ li [] [ text "Bachelor of Convergence Security" ]
                     , li [] [ text "Bachelor of Electronics Engineering" ]
-                    , li [] [ text "(GPA: 3.91/4.5)" ]
+                    , li [] [ text "(GPA: 3.91/4.5; Double Majors)" ]
                     ]
                 ]
             ])
 
 
-ch1keenCertificate : CssStyling -> Html Msg
-ch1keenCertificate cssStyling =
-    section "Certifications" cssStyling
+ch1keenCertificate : Context -> Html Msg
+ch1keenCertificate context =
+    section "Certifications" context
         (ul []
             [ li [] [ text "Forth Class Amateur Radio Operator (Korea)" ]
               -- Information of SQL Developer
@@ -237,18 +250,18 @@ ch1keenCertificate cssStyling =
             ])
 
 
-ch1keenFindings : CssStyling -> Html Msg
-ch1keenFindings cssStyling =
-    section "Vulnerability Findings" cssStyling
+ch1keenFindings : Context -> Html Msg
+ch1keenFindings context =
+    section "Vulnerability Findings" context
         (ul []
             [ li [] [ text "GHSA-wfq4-6v32-jrhq: Open Redirect in Adoptium.net" ]
             , li [] [ text "Note: Two more vulnerability have been reported to MITRE." ]
             ])
 
 
-ch1keenVolunteer : CssStyling -> Html Msg
-ch1keenVolunteer cssStyling =
-    section "Volunteer Experience" cssStyling
+ch1keenVolunteer : Context -> Html Msg
+ch1keenVolunteer context =
+    section "Volunteer Experience" context
         (ul []
             [ li []
                 [ text "Soksok Camp(쏙쏙캠프) by Ministry of Education (Korea)"
@@ -292,9 +305,9 @@ ch1keenVolunteer cssStyling =
             ])
 
 
-footer : CssStyling -> Html Msg
-footer cssStyling =
-    if cssStyling == True
+footer : Context -> Html Msg
+footer context =
+    if context == True
     then
         div
             [ style "margin-top" "5rem", style "margin-bottom" "5rem"]
@@ -334,29 +347,59 @@ footer cssStyling =
 
 
 
-view : CssStyling -> Html Msg
-view cssStyling =
-    div [ (if cssStyling then class "pico" else style "font-family" "Times, serif")
+view : Context -> Html Msg
+view context =
+    div [ (if context then class "pico" else style "font-family" "Times, serif")
         , style "zoom" "87%" ]
         [ div
-            [ if cssStyling then class "container" else class "" ]
-            [ ch1keenTitle cssStyling
-            , ch1keenProfile cssStyling
-            , ch1keenCareer cssStyling
-            , ch1keenFindings cssStyling
-            , ch1keenVolunteer cssStyling
-            , ch1keenAward cssStyling
-            , ch1keenEducation cssStyling
-            , ch1keenCertificate cssStyling
+            [ if context then class "container" else class "" ]
+            [ ch1keenTitle context
+            , ch1keenProfile context
+            , ch1keenCareer context
+            , ch1keenFindings context
+            , ch1keenVolunteer context
+            , ch1keenAward context
+            , ch1keenEducation context
+            , ch1keenCertificate context
             ]
         , hr [ style "border-color" slate_100 ] []
-        --, div
-        --    [ style "page-break-before" "always", if cssStyling then class "container" else class "" ]
-        --    [ ch1keenTitle cssStyling
-        --    , ch1keenProfile cssStyling
-        --    , ch1keenCareerKor cssStyling
-        --    ]
-        --, hr [ style "border-color" slate_100 ] []
-        , footer cssStyling
+        , div
+            [ style "page-break-before" "always", if context then class "container" else class "" ]
+            (List.map (\f->f context)
+                [ ch1keenTitle
+                , ch1keenProfile
+                , ch1keenCareerKor
+                , ch1keenFindings
+                , ch1keenVolunteerKor
+                , ch1keenAwardKor
+                , ch1keenEducationKor
+                , ch1keenCertificateKor
+                ])
+        , hr [ style "border-color" slate_100 ] []
+        , fieldset
+            [ style "position" "fixed"
+            , style "width" "240px"
+            , style "opacity" "40%"
+            , style "background-color" "white"
+            , style "bottom" "10px"
+            , style "right" "10px"
+            , style "border" ("1px solid " ++ slate_100)
+            , style "border-radius" "16px"
+            ]
+            [ legend [] [ text "Resume Controller" ]
+            , label []
+                [ input
+                    [ name "eng-kor", type_ "checkbox", attribute "role" "switch" ]
+                    []
+                , text "English / 한글('Korean')"
+                ]
+            , label []
+                [ input
+                    [ name "printable", type_ "checkbox", attribute "role" "switch" ]
+                    []
+                , text "Interactive / Printable"
+                ]
+            ]
+        , footer context
         ]
 

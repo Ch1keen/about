@@ -96,20 +96,20 @@ ch1keenCareerKor cssStyling =
                     ]
                 ]
             , li []
-                [ text "2020.10 - 2021.02: Application Developer Intern, Petner"
+                [ text "2020.10 - 2021.02: 어플리케이션 개발 인턴, Petner. Co"
                 , ul []
-                    [ li [] [ text "Developed community service using Flutter and Ruby on Rails frameworks." ]
+                    [ li [] [ text "댓글, 좋아요 기능이 있는 커뮤니티 서비스 론칭. 기술 스택: Ruby on Rails, Flutter" ]
                     ]
                 ]
             , li []
-                [ text "2019.03 - 2020.10: CERT Team, Republic of Korea Army"
+                [ text "2019.03 - 2020.10: 대한민국 육군 정보보호병"
                 , ul []
-                    [ li [] [ text "Led a CERT squad, managing team members and executing missions." ]
-                    , li [] [ text "Handled cyber security incidents across multiple divisions." ]
+                    [ li [] [ text "분대장으로써 팀원들의 화합을 도모하고 주어진 임무를 수행함." ]
+                    , li [] [ text "예하 사단에서 발생한 보안 사고를 탐지 및 제보." ]
                     ]
                 ]
             , li []
-                [ text "2021.01 - 2022.06: Undergraduate Researcher, Kyonggi University NSE Lab"
+                [ text "2021.01 - 2022.06: 경기대학교 차세대 보안공학 연구실(NSE Lab) 학부연구생"
                 , ul []
                     [ li [] [ text "Researched blockchain technologies and security vulnerabilities." ]
                     , li [] [ text "Studied security flaws in Ethereum dApps and coin economics." ]
@@ -165,8 +165,8 @@ ch1keenAwardKor cssStyling =
             ])
 
 
-ch1keenEducation : CssStyling -> Html Msg
-ch1keenEducation cssStyling =
+ch1keenEducationKor : CssStyling -> Html Msg
+ch1keenEducationKor cssStyling =
     section "Education & Training" cssStyling
         (ul []
             [ li [] [ text "2023.02: Global Cyber Security 2023 교육 프로그램의 일환으로 싱가포르에서 연수함." ]
@@ -176,14 +176,14 @@ ch1keenEducation cssStyling =
                 , ul []
                     [ li [] [ text "융합보안학과" ]
                     , li [] [ text "전자공학과" ]
-                    , li [] [ text "(학점 3.91/4.5)" ]
+                    , li [] [ text "(학점 3.91/4.5; 복수전공)" ]
                     ]
                 ]
             ])
 
 
-ch1keenCertificate : CssStyling -> Html Msg
-ch1keenCertificate cssStyling =
+ch1keenCertificateKor : CssStyling -> Html Msg
+ch1keenCertificateKor cssStyling =
     section "Certifications" cssStyling
         (ul []
             [ li [] [ text "아마추어무선기사 제4급" ]
@@ -205,8 +205,8 @@ ch1keenFindings cssStyling =
             ])
 
 
-ch1keenVolunteer : CssStyling -> Html Msg
-ch1keenVolunteer cssStyling =
+ch1keenVolunteerKor : CssStyling -> Html Msg
+ch1keenVolunteerKor cssStyling =
     section "Volunteer Experience" cssStyling
         (ul []
             [ li []
