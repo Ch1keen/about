@@ -129,6 +129,7 @@ footer context =
             , button
                 [ onClick PageStyleToPrintable ]
                 [ text "Click here to go to the PDF version of the resume." ]
+            , button [ id "downloadPDF" ] [ text "Click here to download PDF" ]
             ]
     else
         div
@@ -147,6 +148,7 @@ footer context =
             , button
                 [ style "margin-bottom" "1rem", onClick PageStyleToInteractable ]
                 [ text "Click here to go back to the web publish version of the resume." ]
+            , button [ id "downloadPDF" ] [ text "Click here to download PDF" ]
             ]
 
 
