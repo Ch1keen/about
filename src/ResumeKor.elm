@@ -128,7 +128,9 @@ ch1keenCareerKor context =
                 , ul []
                     [ li []
                       [ a [ href "https://github.com/dia-language" ] [ text "Dia programming language" ]
-                      , text " (2024): 강 타입(Strong Typed) 함수형 프로그래밍 언어 컴파일러(Dia -> C++) 프로젝트." ]
+                      , text " (2024): OCaml으로 작성된 강 타입(Strong Typed) 함수형 프로그래밍 언어 컴파일러(Dia -> C++) 프로젝트. "
+                      , a [ href "" ] [ text "Yocto 레시피" ]
+                      , text "사용 가능." ]
                     , li []
                       [ a [ href "https://wiki.ch1keen.xyz/" ] [ text "Ch1keen Wiki" ]
                       , text " (2023): 차량 보안을 비롯한 여러 보안 관련 정보를 기록하고 전달하기 위해 Next.js를 이용한 사이트 운영 중." ]

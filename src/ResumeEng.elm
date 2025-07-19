@@ -135,7 +135,10 @@ ch1keenCareer context =
                     [ li []
                       [ text "The "
                       , a [ href "https://github.com/dia-language" ] [ text "Dia programming language" ]
-                      , text " (2024): A functional programming language focused on portability and simplicity." ]
+                      , text " (2024): A functional programming language focused on portability and simplicity. Additionally, "
+                      , a [ href "https://github.com/dia-language/yocto-dia-layer" ] [ text "a yocto recipe for Dia" ]
+                      , text "is available."
+                      ]
                     , li []
                       [ text "The "
                       , a [ href "https://wiki.ch1keen.xyz/" ] [ text "Ch1keen Wiki" ]
@@ -216,8 +219,13 @@ ch1keenFindings : Context -> Html Msg
 ch1keenFindings context =
     section "Vulnerability Findings" context
         (ul []
-            [ li [] [ text "GHSA-wfq4-6v32-jrhq: Open Redirect in Adoptium.net" ]
-            , li [] [ text "Note: Two more vulnerability have been reported to MITRE." ]
+            [ li []
+                [ a [ href "https://github.com/Ch1keen/Adoptium.net-next-security-advisory" ]
+                    [ text "GHSA-wfq4-6v32-jrhq: Open Redirect in Adoptium.net" ] ]
+            , li []
+                [ a [ href "https://github.com/Ch1keen/smallbasic-vulnerability-1" ]
+                    [ text "Global Buffer Overflow in SmallBASIC (sbasg)" ] ]
+            , li [] [ text "Note: A vulnerability was reported to MITRE." ]
             ])
 
 
