@@ -14,15 +14,21 @@
     <div id="myapp"></div>
 
     <script>
-      var elemMyApp = document.getElementById('myapp')
-      var app = Elm.Main.init({
+      const elemMyApp = document.getElementById('myapp')
+      const app = Elm.Main.init({
         node: elemMyApp
       });
 
       document.addEventListener('DOMContentLoaded', () => {
-        var btnDownloadPDF = document.getElementById('downloadPDF')
+        const btnDownloadPDF = document.getElementById('downloadPDF')
         btnDownloadPDF.addEventListener('click', (e) => {
-          html2pdf(elemMyApp)
+          const elemResumeController = document.getElementById('resumeCtrler')
+
+          // Backup previous style of the controller
+          const _ctrlerStyle = elemResumeController.getAttribute('style')
+          elemResumeController.setAttribute('style', 'display: none')
+          window.print()
+          elemResumeController.setAttribute('style', _ctrlerStyle)
         })
       })
     </script>

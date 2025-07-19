@@ -108,6 +108,55 @@ section title context body =
             ]
             [ h2 [ style "margin-bottom" "2px"] [ text title ], divider, body ]
 
+resumeController : Context -> Html Msg
+resumeController context =
+    fieldset
+        [ style "position" "fixed"
+        , style "width" "14rem"
+        , style "opacity" context.ctrlerOpacity
+        , style "background-color" "white"
+        , style "bottom" "10px"
+        , style "right" "10px"
+        , style "border" ("2px solid " ++ slate_400)
+        , style "border-radius" "16px"
+        , style "padding" "10px"
+        , id "resumeCtrler"
+        , class "pico"
+        , onMouseEnter FocusController
+        , onMouseLeave ZoneOutController
+        ]
+        [ legend [] [ text "Resume Controller" ]
+        , label []
+            [ input
+                [ name "english"
+                , type_ "checkbox"
+                , checked context.engVisible
+                , onCheck toggleEngPage
+                ] []
+            , text "English"
+            ]
+        , label []
+            [ input
+                [ name "korean"
+                , type_ "checkbox"
+                , checked context.korVisible
+                , onCheck toggleKorPage
+                ] []
+            , text "한글('Korean')"
+            ]
+        , label []
+            [ input
+                [ name "printable"
+                , type_ "checkbox"
+                , attribute "role" "switch"
+                , checked context.isInteractable
+                , onCheck pageStyleToggle
+                ] []
+            , text "Printable / Interactive"
+            ]
+        , button [ id "downloadPDF" ] [ text "Print" ]
+        ]
+
 
 footer : Context -> Html Msg
 footer context =
@@ -126,10 +175,6 @@ footer context =
                 , a [ href "https://github.com/Ch1keen/about" ]
                     [ text "browse source code of this resume" ]
                 , text "." ]
-            , button
-                [ onClick PageStyleToPrintable ]
-                [ text "Click here to go to the PDF version of the resume." ]
-            , button [ id "downloadPDF" ] [ text "Click here to download PDF" ]
             ]
     else
         div
@@ -145,10 +190,6 @@ footer context =
                     [ text "https://github.com/Ch1keen/about" ]
                 , text " to browse source code of this resume."
                 ]
-            , button
-                [ style "margin-bottom" "1rem", onClick PageStyleToInteractable ]
-                [ text "Click here to go back to the web publish version of the resume." ]
-            , button [ id "downloadPDF" ] [ text "Click here to download PDF" ]
             ]
 
 
@@ -185,51 +226,7 @@ view context =
                     ]
             else []))
         , hr [ style "border-color" slate_100 ] []
-        , fieldset
-            [ style "position" "fixed"
-            , style "width" "240px"
-            , style "opacity" context.ctrlerOpacity
-            , style "background-color" "white"
-            , style "bottom" "10px"
-            , style "right" "10px"
-            , style "border" ("2px solid " ++ slate_400)
-            , style "border-radius" "16px"
-            , style "padding" "10px"
-            , class "pico"
-            , attribute "role" "group"
-            , onMouseEnter FocusController
-            , onMouseLeave ZoneOutController
-            ]
-            [ legend [] [ text "Resume Controller" ]
-            , label []
-                [ input
-                    [ name "english"
-                    , type_ "checkbox"
-                    , checked context.engVisible
-                    , onCheck toggleEngPage
-                    ] []
-                , text "English"
-                ]
-            , label []
-                [ input
-                    [ name "korean"
-                    , type_ "checkbox"
-                    , checked context.korVisible
-                    , onCheck toggleKorPage
-                    ] []
-                , text "한글('Korean')"
-                ]
-            , label []
-                [ input
-                    [ name "printable"
-                    , type_ "checkbox"
-                    , attribute "role" "switch"
-                    , checked context.isInteractable
-                    , onCheck pageStyleToggle
-                    ] []
-                , text "Printable / Interactive"
-                ]
-            ]
+        , resumeController context
         , footer context
         ]
 
