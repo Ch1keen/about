@@ -72,6 +72,7 @@ ch1keenTitleKor context =
             [ h1 [ style "text-align" "center" ] [ text "한정준" ]
             , contactLine (text "\u{1f4e7}") "mailto:hire-me@ch1keen.xyz" "hire-me@ch1keen.xyz"
             , contactLine (img [ src "assets/github-mark.svg", width 24, height 24 ] []) "https://github.com/Ch1keen" "github.com/Ch1keen"
+            , contactLine (text "\u{1f4dd}") "https://about.ch1keen.xyz/" "about.ch1keen.xyz"
             ]
 
 
@@ -96,8 +97,8 @@ ch1keenCareerKor context =
                 , a [ href "https://autocrypt.io" ] [ text "(주) 아우토크립트" ]
                 , text " 레드팀"
                 , ul []
-                    [ li [] [ text "Performed penetration testing on various ECUs including infortainments, an instrumental cluster, and a telematic ECU, based on the TARA method (ISO/SAE 21434) and discovered possible vulnerabilities on Yocto Linux, QNX, and AUTOSAR based systems." ]
-                    , li [] [ text "I reported 11 issues in 5 ECUs. 5 issues were classified as incidents, and reported to CEO of Hyundai Mobis (Problems from Past Projects). It was a collaboration project with Hyundai Mobis." ]
+                    [ li [] [ text "IVI(AVN), 클러스터, 텔레매틱스 등 여러 티어 사의 제어기 모의해킹 경험. AUTOSAR 구조 제어기 및 Yocto 리눅스 기반 제어기에서 여러 이슈 제기하였음." ]
+                    , li [] [ text "현대모비스 품질 팀과 진행한 과거차보안 협력 프로젝트에서 5개 제어기에서 11개의 이슈를 보고하였고, 이중 5개 이슈는 사고로 분류되어 현대모비스 사장에 보고됨." ]
                     , li [] [ text "클러스터 제어기 기판 위에 노출된 SOIC-8 칩 SPI 라인에 장치를 연결하여 펌웨어 덤프를 시도하는 테스트를 수행." ]
                     , li [] [ text "Led V2X (Vehicle-to-Everything) testing, focusing on CAM/DENM and BSM functionalities. Specialized in reverse engineering V2X communication services and developing test plans." ]
                     , li [] [ text "Contributed to Vehicle Type Approval efforts of an In-Vehicle Infotainment (IVI) hardware by ensuring there were no vulnerabilities on CAN/UDS (ISO/SAE 14229-1) and a media player on IVI." ]
@@ -149,7 +150,6 @@ ch1keenCareerKor context =
                       , text "에서 영감을 받았으며, '재밌다'는 평가가 있었음."
                       ]
                     , li [] [ text "DevSecOps Container Security Platform (2022): A container managing platform integrating image signing and vulnerability scanning in CI/CD pipelines. Most of code was written in Python, and is open source." ]
-                    , li [] [ text "NFT Trading Platform (2021): Led a team of 11 students to suggest a secure NFT trading platform to a start up." ]
                     ]
                 ]
             ])

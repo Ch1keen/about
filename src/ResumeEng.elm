@@ -78,6 +78,7 @@ ch1keenTitle context =
             [ h1 [ style "text-align" "center" ] [ text "Han Jeongjun" ]
             , contactLine (text "\u{1f4e7}") "mailto:hire-me@ch1keen.xyz" "hire-me@ch1keen.xyz"
             , contactLine (img [ src "assets/github-mark.svg", width 24, height 24 ] []) "https://github.com/Ch1keen" "github.com/Ch1keen"
+            , contactLine (text "\u{1f4dd}") "https://about.ch1keen.xyz/" "about.ch1keen.xyz"
             ]
 
 
@@ -158,7 +159,6 @@ ch1keenCareer context =
                       , text "."
                       ]
                     , li [] [ text "DevSecOps Container Security Platform (2022): A container managing platform integrating image signing and vulnerability scanning in CI/CD pipelines. Most of code was written in Python, and is open source." ]
-                    , li [] [ text "NFT Trading Platform (2021): Led a team of 11 students to suggest a secure NFT trading platform to a start up." ]
                     ]
                 ]
             ])
