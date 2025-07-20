@@ -89,7 +89,7 @@ ch1keenProfile context =
             [ p []
                 [ text "Highly motivated and team-friendly individual with diverse experiences not only in Automotive penetration testing, but also in web hacking, and collaborative projects. Proficient in various programming languages, frameworks, and tools. Experienced in leading teams and contributing to open-source projects." ]
             , p [] [ strong [] [ text "Keyword: " ]
-                , text "Automotive, Penetration Testing, UDS(ISO 14229-1), Cyber Security, UN R.155"
+                , text "Automotive, Penetration Testing, Reverse Engineering, UDS(ISO 14229-1), Cyber Security, UN R.155"
             ]
         ])
 
@@ -111,7 +111,7 @@ ch1keenCareer context =
                     ]
                 ]
             , li []
-                [ text "2020.10 - 2021.02: Application Developer Intern, Petner"
+                [ text "2020.10 - 2021.02: Application Developer Intern, PETNER Co.,Ltd."
                 , ul []
                     [ li [] [ text "Developed community service using Flutter and Ruby on Rails frameworks." ]
                     ]
@@ -177,7 +177,12 @@ ch1keenAward context =
                         ]
                     ]
             , li [] [ text "2023 Brainhack CDDC 2023 CTF (Singapore) - Final 20th Place" ]
-            , li [] [ text "2023 Hacktheon Sejong (Korea) - Final 21th Place" ]
+              -- Hacktheon Sejong 2023: https://web.archive.org/web/20250720105349/https://overseas.mofa.go.kr/be-en/brd/m_7437/view.do?seq=761051
+              -- https://web.archive.org/web/20250211182326/https://hacktheon.org/2023/eng/overview.php
+            , li []
+                [ a [ href "https://hacktheon.org/2023/eng/overview.php" ] [ text "2023 Hacktheon Sejong International Univ. Students' Cyber Security Competition (Korea) " ]
+                , strong [] [ text "- Final 21th Place" ]
+                ]
             , li [] [ text "2021 KOSPO Web Security Competition - Encouragement Award" ]
             , li [] [ text "2020 TS Security Competition 'Find Security holes' - Excellence Award" ]
             , li [] [ text "Blood Donation Merit Award (Silver)" ]
@@ -188,8 +193,12 @@ ch1keenEducation : Context -> Html Msg
 ch1keenEducation context =
     section "Education & Training" context
         (ul []
-            [ li [] [ text "2023.02: Global Cyber Security 2023 in Singapore" ]
-            , li [] [ text "2022.06 - 2023.03: Best of the Best 11th - Vulnerability Analysis Track" ]
+            [ li [] [ a [ href "https://gcc.ac/archive/gcc_2023/" ] [ text "2023.02: Global Cyber Security 2023 in Singapore" ] ]
+            , li []
+                [ text "2022.06 - 2023.03: "
+                , a [ href "https://en.kitribob.kr/" ] [ text "KITRI Best of the Best" ]
+                , text "11th - Vulnerability Analysis Track"
+                ]
             , li []
                 [ text "2017.03 - 2023.02: Kyonggi University"
                 , ul []
@@ -252,7 +261,7 @@ ch1keenVolunteer context =
                     ]
                 ]
             , li []
-                [ text "BoB Alumni Council"
+                [ text "KITRI BoB Alumni Council"
                 , ul []
                     [ li [] [ text "Active member of the council, contributing to organizing workshops and alumni events." ]
                     , li [] [ text "Promoted cybersecurity education and awareness among university students." ]
@@ -266,7 +275,7 @@ ch1keenVolunteer context =
                     ]
                 ]
             , li []
-                [ text "Ubuntu Asia 2022"
+                [ text "UbuCon Asia 2022"
                 , ul []
                     [ li [] [ text "Volunteered as a front desk staff at the event, helping to register and assist attendees, including international guests." ]
                     , li [] [ text "Provided logistical support and ensured smooth operation of event activities." ]
