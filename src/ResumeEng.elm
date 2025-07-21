@@ -117,7 +117,9 @@ ch1keenCareer context =
                     ]
                 ]
             , li []
-                [ text "2019.03 - 2020.10: CERT Team, Republic of Korea Army"
+                [ text "2019.03 - 2020.10: "
+                  -- Archive: https://web.archive.org/web/20250428083546/https://mma.go.kr/contents.do?mc=mma0000516
+                , a [ href "https://www.mma.go.kr/contents.do?mc=mma0000516" ] [ text "CERT Team, Republic of Korea Army" ]
                 , ul []
                     [ li [] [ text "Led a CERT squad, managing team members and executing missions." ]
                     , li [] [ text "Handled cyber security incidents across multiple divisions." ]

@@ -80,8 +80,11 @@ ch1keenProfileKor : Context -> Html Msg
 ch1keenProfileKor context =
     section "Profile" context
         (div []
-            [ p []
-                [ text "Highly motivated and team-friendly individual with diverse experiences not only in Automotive penetration testing, but also in web hacking, and collaborative projects. Proficient in various programming languages, frameworks, and tools. Experienced in leading teams and contributing to open-source projects." ]
+            [ ul []
+                [ li [] [ text "차량 제어기 모의해킹은 제 직업이고, 웹 서비스 개발과 해킹은 취미입니다." ]
+                , li [] [ text "신기술과 최신 트렌드에 흥미진진 흥미를 느낍니다." ]
+                , li [] [ text "여러 팀들과 더불어 팀원들과의 친목을 도모하고 소통하며 목표 달성을 노립니다." ]
+                ]
             , p [] [ strong [] [ text "Keyword: " ]
                 , text "Automotive, Penetration Testing, Reverse Engineering, UDS(ISO 14229-1), Cyber Security, UN R.155"
             ]
@@ -110,8 +113,14 @@ ch1keenCareerKor context =
                         , strong [] [ text "현대모비스 사장에 보고" ]
                         , text "됨. 이를 통해 고객사들과 함께 협업하는 방법에 대해 알게 되었음."
                         ]
-                    , li [] [ text "SPI 테스트: 클러스터 제어기 기판 위에 노출된 SOIC-8 칩 SPI 라인에 장치를 연결하여 NvM 데이터 덤프를 시도하는 테스트를 수행." ]
-                    , li [] [ text "V2X(Vehicle-to-Everying) 테스팅: 주어진 TARA에 따라 테스트 플랜을 설계하고 CAM/DENM, BSM 통신 컴포넌트를 리버스 엔지니어링하는 방식으로 V2X 프로토콜에 대한 테스트를 수행하였음." ]
+                    , li []
+                        [ strong [] [ text "SPI 테스트:" ]
+                        , text " 클러스터 제어기 기판 위에 노출된 SOIC-8 칩 SPI 라인에 장치를 연결하여 NvM 데이터 덤프를 시도하는 테스트를 수행."
+                        ]
+                    , li []
+                        [ strong [] [ text "V2X(Vehicle-to-Everying) 테스팅:" ]
+                        , text " 주어진 TARA에 따라 테스트 플랜을 설계하고 CAM/DENM, BSM 통신 컴포넌트를 리버스 엔지니어링하는 방식으로 V2X 프로토콜에 대한 테스트를 수행하였음."
+                        ]
                     , li [] [ text "유럽향 차종의 VTA 인증에 인터뷰이 자격으로 참여하였음. CAN/UDS (ISO/SAE 14229-1) 컴포넌트와 미디어 처리 컴포넌트에 취약점이 없었음을 설명함." ]
                     ]
                 ]
@@ -130,7 +139,9 @@ ch1keenCareerKor context =
                     ]
                 ]
             , li []
-                [ text "2021.01 - 2022.06: 경기대학교 차세대 보안공학 연구실(NSE Lab) 학부연구생"
+                [ text "2021.01 - 2022.06: "
+                , a [ href "https://sites.google.com/view/ksel/about/mission-history" ] [ text "경기대학교 차세대 보안공학 연구실(NSE Lab)" ]
+                , text "학부연구생"
                 , ul []
                     [ li [] [ text "블록체인 기술과 스마트 컨트랙트에서 발생할 수 있는 취약점에 대해 연구함." ]
                     , li [] [ text "이더리움 dApp의 코인 이코노미와 서비스에서 발생할 수 있는 취약점에 대해 학습." ]
@@ -161,7 +172,10 @@ ch1keenCareerKor context =
                       , a [ href "https://nvd.nist.gov/vuln/detail/CVE-2018-14665" ] [ text "CVE-2018-14665" ]
                       , text "에서 영감을 받았으며, '재밌다'는 평가가 있었음."
                       ]
-                    , li [] [ text "DevSecOps Container Security Platform (2022): A container managing platform integrating image signing and vulnerability scanning in CI/CD pipelines. Most of code was written in Python, and is open source." ]
+                    , li []
+                        [ text "DevSecOps 컨테이너 관리 도구 (2022): 컨테이너 이미지에 서명을 추가하고 취약점을 스캐닝하는 도구. 파이썬으로 작성되었고, "
+                        , a [ href "https://github.com/team-saba" ] [ text "오픈소스 공개함." ]
+                        ]
                     ]
                 ]
             ])
@@ -257,15 +271,15 @@ ch1keenVolunteerKor context =
             , li []
                 [ text "KITRI BoB 9대 총동문회"
                 , ul []
-                    [ li [] [ text "Active member of the council, contributing to organizing workshops and alumni events." ]
+                    [ li [] [ text "총동문회 멤버로서 교육생들과 수료생들을 위한 워크샵과 이벤트를 기획함." ]
                     , li [] [ text "KITRI BoB 교육 프로그램에 관심이 있는 학생들을 대상으로 5개 대학교에서 홍보 활동을 펼침." ]
                     ]
                 ]
             , li []
                 [ text "State Of Origin CTF 2023"
                 , ul []
-                    [ li [] [ text "Volunteered as a challenge creator and organizer for a CTF competition, providing participants with unique and engaging challenges." ]
-                    , li [] [ text "Supported the event with technical and logistical assistance, ensuring a smooth experience for all participants." ]
+                    [ li [] [ text "호주 퀸즐랜드 대학교(UQ) 보안동아리와의 협력으로 CTF 대회에 문제를 제공하였음." ]
+                    , li [] [ text "대회 준비 및 진행동안 제공한 문제에 대한 질의응답을 받는 등 운영에 관여하였음." ]
                     ]
                 ]
             , li []
