@@ -186,22 +186,36 @@ ch1keenAwardKor context =
     section "Awards and Recognitions" context
         (ul []
             [ li [] [ text "2025 전라남도 웹보안 경진대회 - 우수상" ]
-            , li [] [ text "Def Con Car Hacking Village (2024) - 종합 4위"
-                    , ul []
-                        [ li [] [ text "AutoCrypt 레드팀 팀원들과 출전하였고, RAMN 도구를 이용한 문제에 집중." ]
-                        , li [] [ text "리버스 엔지니어링을 통해 문제 해결의 실마리를 제공하였고, 문제 해결에 필요한 적절한 도구를 찾아내었음." ]
-                        , li [] [ text "토요타 US 출신 출제진들을 비롯하여 타 문제 스태프들과도 소통하여 여러 힌트를 이끌어내어 팀에 기여함." ]
-                        ]
-                    ]
             , li []
-                [ a [ href "https://www.dsta.gov.sg/whats-on/spotlight/decoding-the-future-with-bright-minds" ] [ text "2023 Brainhack CDDC 2023 CTF (싱가포르) - 본선 20위" ] ]
+                [ text "Def Con Car Hacking Village (2024) - "
+                , strong [] [ text "종합 4위" ]
+                , ul []
+                    [ li [] [ text "AutoCrypt 레드팀 팀원들과 출전하였고, RAMN 도구를 이용한 문제에 집중." ]
+                    , li [] [ text "리버스 엔지니어링을 통해 문제 해결의 실마리를 제공하였고, 문제 해결에 필요한 적절한 도구를 찾아내었음." ]
+                    , li [] [ text "토요타 US 출신 출제진들을 비롯하여 타 문제 스태프들과도 소통하여 여러 힌트를 이끌어내어 팀에 기여함." ]
+                    ]
+                ]
+            , li []
+                [ a [ href "https://www.dsta.gov.sg/whats-on/spotlight/decoding-the-future-with-bright-minds" ] [ text "2023 Brainhack CDDC 2023 CTF (싱가포르)"
+                , text " - "
+                , strong [] [ text "본선 20위" ]
+                ]
             , li []
                 -- Archive: https://web.archive.org/web/20240717214739/https://hacktheon.org/2023/
-                [ a [ href "https://hacktheon.org/2023/" ] [ text "2023 핵테온 세종 국제 대학생 사이버보안 경진대회 - " ]
+                [ a [ href "https://hacktheon.org/2023/" ] [ text "2023 핵테온 세종 국제 대학생 사이버보안 경진대회" ]
+                , text " - "
                 , strong [] [ text "본선 21위" ]
                 ]
-            , li [] [ text "2021 KOSPO 웹보안 경진대회 - 장려상" ]
-            , li [] [ text "2020 TS 보안 경진대회 '보안 허점을 찾아라' - 우수상" ]
+            , li []
+                [ text "2021 KOSPO 웹보안 경진대회"
+                , text " - "
+                , strong [] [ "장려상" ]
+                ]
+            , li []
+                [ text "2020 TS 보안 경진대회 '보안 허점을 찾아라'"
+                , text " - "
+                , strong [] [ text "우수상" ]
+                ]
             , li [] [ text "헌혈유공패 은장" ]
             ])
 
