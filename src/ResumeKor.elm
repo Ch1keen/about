@@ -143,6 +143,7 @@ ch1keenCareerKor context =
                 , a [ href "https://sites.google.com/view/ksel/about/mission-history" ] [ text "경기대학교 차세대 보안공학 연구실(NSE Lab)" ]
                 , text "학부연구생"
                 , ul []
+                    -- One of research that I was involved: https://drive.google.com/file/d/1VBel_1QEIz4Uxa45G0-7WvWFPegDJPhl/view
                     [ li [] [ text "블록체인 기술과 스마트 컨트랙트에서 발생할 수 있는 취약점에 대해 연구함." ]
                     , li [] [ text "이더리움 dApp의 코인 이코노미와 서비스에서 발생할 수 있는 취약점에 대해 학습." ]
                     ]
@@ -196,7 +197,7 @@ ch1keenAwardKor context =
                     ]
                 ]
             , li []
-                [ a [ href "https://www.dsta.gov.sg/whats-on/spotlight/decoding-the-future-with-bright-minds" ] [ text "2023 Brainhack CDDC 2023 CTF (싱가포르)"
+                [ a [ href "https://www.dsta.gov.sg/whats-on/spotlight/decoding-the-future-with-bright-minds" ] [ text "2023 Brainhack CDDC 2023 CTF (싱가포르)" ]
                 , text " - "
                 , strong [] [ text "본선 20위" ]
                 ]
@@ -207,18 +208,19 @@ ch1keenAwardKor context =
                 , strong [] [ text "본선 21위" ]
                 ]
             , li []
-                [ text "2021 KOSPO 웹보안 경진대회"
+                -- Archive: https://web.archive.org/web/20250721141000/https://www.kospo.co.kr/kospo/216/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGa29zcG8lMkY5NSUyRjEwMjYwMiUyRmFydGNsVmlldy5kbyUzRg%3D%3D
+                [ a [ href "https://www.kospo.co.kr/kospo/216/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGa29zcG8lMkY5NSUyRjEwMjYwMiUyRmFydGNsVmlldy5kbyUzRg%3D%3D" ] [ text "2021 KOSPO 웹보안 경진대회" ]
                 , text " - "
-                , strong [] [ "장려상" ]
+                , strong [] [ text "장려상" ]
                 ]
             , li []
-                [ text "2020 TS 보안 경진대회 '보안 허점을 찾아라'"
+                -- Archive: https://web.archive.org/web/20250721134544/https://main.kotsa.or.kr/portal/bbs/notice_view.do?menuCode=05010100&bbscCode=notice&bbscSeqn=16325
+                [ a [ href "https://main.kotsa.or.kr/portal/bbs/notice_view.do?menuCode=05010100&bbscCode=notice&bbscSeqn=16325" ] [ text "2020 TS 보안 경진대회 '보안 허점을 찾아라'" ]
                 , text " - "
                 , strong [] [ text "우수상" ]
                 ]
             , li [] [ text "헌혈유공패 은장" ]
             ])
-
 
 ch1keenEducationKor : Context -> Html Msg
 ch1keenEducationKor context =
@@ -292,7 +294,10 @@ ch1keenVolunteerKor context =
             , li []
                 [ text "State Of Origin CTF 2023"
                 , ul []
-                    [ li [] [ text "호주 퀸즐랜드 대학교(UQ) 보안동아리와의 협력으로 CTF 대회에 문제를 제공하였음." ]
+                    [ li []
+                        [ a [ href "https://www.facebook.com/qutwhitehats/posts/hi-allhope-youre-really-excited-for-our-upcoming-state-of-origin-ctf-tomorrow-an/741490527982574/" ] [ text "호주 퀸즐랜드 대학교(UQ) 보안동아리와 " ]
+                        , text "뉴사우스웨일스 대학교(UNSW) 보안동아리가 개최한 CTF 대회에 5개 문제를 제공하였음."
+                        ]
                     , li [] [ text "대회 준비 및 진행동안 제공한 문제에 대한 질의응답을 받는 등 운영에 관여하였음." ]
                     ]
                 ]
