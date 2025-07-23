@@ -141,7 +141,7 @@ ch1keenCareerKor context =
             , li []
                 [ text "2021.01 - 2022.06: "
                 , a [ href "https://sites.google.com/view/ksel/about/mission-history" ] [ text "경기대학교 차세대 보안공학 연구실(NSE Lab)" ]
-                , text "학부연구생"
+                , text " 학부연구생"
                 , ul []
                     -- One of research that I was involved: https://drive.google.com/file/d/1VBel_1QEIz4Uxa45G0-7WvWFPegDJPhl/view
                     [ li [] [ text "블록체인 기술과 스마트 컨트랙트에서 발생할 수 있는 취약점에 대해 연구함." ]
@@ -154,7 +154,8 @@ ch1keenCareerKor context =
                     [ li []
                       [ a [ href "https://github.com/dia-language" ] [ text "Dia programming language" ]
                       , text " (2024): OCaml으로 작성된 강 타입(Strong Typed) 함수형 프로그래밍 언어 컴파일러(Dia -> C++) 프로젝트. "
-                      , a [ href "" ] [ text "Yocto 레시피" ]
+                      , br [] []
+                      , a [ href "https://github.com/dia-language/yocto-dia-layer" ] [ text "Yocto 레시피" ]
                       , text " 사용 가능." ]
                     , li []
                       [ a [ href "https://wiki.ch1keen.xyz/" ] [ text "Ch1keen Wiki" ]
@@ -162,7 +163,7 @@ ch1keenCareerKor context =
                     , li []
                       -- The Hacking Championship Jr. 2023 (DSEC2023 in Daegu)
                       -- 제9회 정보보안 경진대회 (Ministry of Education)
-                      [ text "CTF 문제 출제 (대구 DSEC2023, 제9회 정보보안 경진대회): 2 Cryptography, 1 Pwn, 1 Web 문제 출제. "
+                      [ text "CTF 문제 출제 (대구 DSEC2023, 제9회 정보보안 경진대회): 2 Cryptography, 1 Pwn, 1 Web 문제 출제. 2023년에 수행한"
                       , a [ href "https://www.stealien.com/en/main" ] [ text "STEALIEN" ]
                       , text "과의 협업의 일환."
                       ]
@@ -186,7 +187,12 @@ ch1keenAwardKor : Context -> Html Msg
 ch1keenAwardKor context =
     section "Awards and Recognitions" context
         (ul []
-            [ li [] [ text "2025 전라남도 웹보안 경진대회 - 우수상" ]
+            [ li []
+                -- Archive: https://web.archive.org/save/https://www.kcgsa.org/notice/view.php?idx=236&page=1&search=&find=&board_name=notice&s_menu=s2&s_menu2=s2_1&mode=view
+                [ a [ href "https://www.kcgsa.org/notice/view.php?idx=236&page=1&search=&find=&board_name=notice&s_menu=s2&s_menu2=s2_1&mode=view" ] [ text "2025 전라남도 웹보안 경진대회" ]
+                , text " - "
+                , strong [] [ text "우수상" ]
+                ]
             , li []
                 [ text "Def Con Car Hacking Village (2024) - "
                 , strong [] [ text "종합 4위" ]
@@ -226,7 +232,11 @@ ch1keenEducationKor : Context -> Html Msg
 ch1keenEducationKor context =
     section "Education & Training" context
         (ul []
-            [ li [] [ a [ href "https://gcc.ac/archive/gcc_2023/" ] [ text "2023.02: Global Cyber Security 2023 교육 프로그램의 일환으로 싱가포르에서 연수함." ] ]
+            [ li []
+                [ text "2023.02: "
+                , a [ href "https://gcc.ac/archive/gcc_2023/" ] [ text "Global Cyber Security 2023 교육 프로그램" ]
+                , text "의 일환으로 싱가포르에서 연수함."
+                ]
             , li [] [ text "2022.06 - 2023.03: KITRI Best of the Best - 11기 취약점 분석 트랙" ]
             , li []
                 [ text "2017.03 - 2023.02: 경기대학교"
@@ -295,8 +305,8 @@ ch1keenVolunteerKor context =
                 [ text "State Of Origin CTF 2023"
                 , ul []
                     [ li []
-                        [ a [ href "https://www.facebook.com/qutwhitehats/posts/hi-allhope-youre-really-excited-for-our-upcoming-state-of-origin-ctf-tomorrow-an/741490527982574/" ] [ text "호주 퀸즐랜드 대학교(UQ) 보안동아리와 " ]
-                        , text "뉴사우스웨일스 대학교(UNSW) 보안동아리가 개최한 CTF 대회에 5개 문제를 제공하였음."
+                        [ a [ href "https://www.facebook.com/qutwhitehats/posts/hi-allhope-youre-really-excited-for-our-upcoming-state-of-origin-ctf-tomorrow-an/741490527982574/" ] [ text "호주 퀸즐랜드 대학교(UQ) 보안동아리" ]
+                        , text "와 뉴사우스웨일스 대학교(UNSW) 보안동아리가 개최한 CTF 대회에 5개 문제를 제공하였음."
                         ]
                     , li [] [ text "대회 준비 및 진행동안 제공한 문제에 대한 질의응답을 받는 등 운영에 관여하였음." ]
                     ]
