@@ -140,7 +140,7 @@ ch1keenCareer context =
                       , a [ href "https://github.com/dia-language" ] [ text "Dia programming language" ]
                       , text " (2024): A functional programming language focused on portability and simplicity. Additionally, "
                       , a [ href "https://github.com/dia-language/yocto-dia-layer" ] [ text "a yocto recipe for Dia" ]
-                      , text "is available."
+                      , text " is available."
                       ]
                     , li []
                       [ text "The "
