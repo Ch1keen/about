@@ -163,7 +163,7 @@ ch1keenCareerKor context =
                     , li []
                       -- The Hacking Championship Jr. 2023 (DSEC2023 in Daegu)
                       -- 제9회 정보보안 경진대회 (Ministry of Education)
-                      [ text "CTF 문제 출제 (대구 DSEC2023, 제9회 정보보안 경진대회): 2 Cryptography, 1 Pwn, 1 Web 문제 출제. 2023년에 수행한"
+                      [ text "CTF 문제 출제 (대구 DSEC2023, 제9회 정보보안 경진대회): 2 Cryptography, 1 Pwn, 1 Web 문제 출제. 2023년에 수행한 "
                       , a [ href "https://www.stealien.com/en/main" ] [ text "STEALIEN" ]
                       , text "과의 협업의 일환."
                       ]

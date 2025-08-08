@@ -236,7 +236,9 @@ ch1keenFindings context =
             , li []
                 [ a [ href "https://github.com/Ch1keen/smallbasic-vulnerability-1" ]
                     [ text "Global Buffer Overflow in SmallBASIC (sbasg)" ] ]
-            , li [] [ text "Note: A vulnerability was reported to MITRE." ]
+            , li []
+                [ a [ href "https://github.com/Ch1keen/pepper-lang-buffer-overflow-1" ]
+                    [ text "Heap Buffer Overflow in Pepper Language" ] ]
             ])
 
 
