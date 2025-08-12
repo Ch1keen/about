@@ -260,7 +260,29 @@ ch1keenCertificateKor context =
               -- Information of 정보처리기사 (Engineer Information Processing)
               -- https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320&gbnn=gbnSubtab2
             , li [] [ text "정보처리기사" ]
+            , li []
+                [ text "듀오링고 영어 시험 (Duolingo English Test; DET) : "
+                , strong [] [ text "125" ]
+                , ul []
+                    [ li []
+                        [ text "이 시험은 Reading, Listening, Speaking, Writing을 포함한 다각도 테스트이며, 160점 만점에 120점 이상은 스탠포드 대학교, MIT 등 "
+                        , strong [] [ text "영미권 대학교/대학원의 입학 자격" ]
+                        , text " 중 하나로 인정됨."
+                        ]
+                    , li []
+                        [ text "유럽영어공통기준의 C1에 준하는 점수에 해당하며, TOEFL 기준 93-97점으로 "
+                        , a [ href "https://englishtest.duolingo.com/test_takers/scores" ] [ text "환산할 수 있음." ]
+                        ]
+                    ]
+                ]
             ])
+
+-- ch1keenLanguageKor : Context -> Html Msg
+-- ch1keenLanguageKor context =
+--     section "Language Fluency" context
+--        (ul []
+--            [ li [] []
+--            ])
 
 
 ch1keenVolunteerKor : Context -> Html Msg
