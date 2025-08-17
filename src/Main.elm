@@ -34,17 +34,11 @@ update msg context =
         PageStyleToInteractable ->
             { context | isInteractable = True }
         KoreaResumeVisible ->
-            { context | korVisible = True }
-        KoreaResumeInvisible ->
-            if context.engVisible == False
-            then context
-            else { context | korVisible = False }
+            { context | engVisible = False, korVisible = True }
         EnglishResumeVisible ->
-            { context | engVisible = True }
-        EnglishResumeInvisible ->
-            if context.korVisible == False
-            then context
-            else { context | engVisible = False }
+            { context | engVisible = True, korVisible = False }
+        EnglishKoreaResumeVisible ->
+            { context | engVisible = True, korVisible = True }
         FocusController ->
             { context | ctrlerOpacity = "100%" }
         ZoneOutController ->
@@ -129,8 +123,9 @@ resumeController context =
         , label []
             [ input
                 [ name "english"
-                , type_ "checkbox"
-                , checked context.engVisible
+                , type_ "radio"
+                , checked
+                    (context.engVisible == True && context.korVisible == False)
                 , onCheck toggleEngPage
                 ] []
             , text "English"
@@ -138,11 +133,22 @@ resumeController context =
         , label []
             [ input
                 [ name "korean"
-                , type_ "checkbox"
-                , checked context.korVisible
+                , type_ "radio"
+                , checked
+                    (context.engVisible == False && context.korVisible == True)
                 , onCheck toggleKorPage
                 ] []
             , text "한글('Korean')"
+            ]
+        , label []
+            [ input
+                [ name "engkor"
+                , type_ "radio"
+                , checked
+                    (context.korVisible && context.engVisible)
+                , onCheck toggleBothEngKorPage
+                ] []
+            , text "English & 한글('Korean')"
             ]
         , label []
             [ input
@@ -178,7 +184,7 @@ footer context =
             ]
     else
         div
-            [ style "page-break-before" "always"]
+            [ style "page-break-before" "always" ]
             [ p []
                 [ text "This page is intended to be printed in a new page. "
                 , text "Press Ctrl+P to save the resume in PDF file, and discard this page before downloading." ]
@@ -212,6 +218,10 @@ view context =
                     , ch1keenCertificate
                     ]
             else [])
+            ++
+            (if context.korVisible && context.engVisible
+              then [ hr [ style "page-break-before" "always" ] [] ]
+              else [])
             ++
             (if context.korVisible then
                 List.map (\f->f context)

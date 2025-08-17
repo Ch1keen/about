@@ -15,25 +15,21 @@ pageStyleToggle event =
     else PageStyleToPrintable
 
 toggleKorPage : Bool -> Msg
-toggleKorPage event =
-    if event == True
-    then KoreaResumeVisible
-    else KoreaResumeInvisible
+toggleKorPage event = KoreaResumeVisible
 
 toggleEngPage : Bool -> Msg
-toggleEngPage event =
-    if event == True
-    then EnglishResumeVisible
-    else EnglishResumeInvisible
+toggleEngPage event = EnglishResumeVisible
+
+toggleBothEngKorPage : Bool -> Msg
+toggleBothEngKorPage event = EnglishKoreaResumeVisible
 
 type Msg
     = PageStyleToPrintable
     | PageStyleToInteractable
       -- Language Selection
     | KoreaResumeVisible
-    | KoreaResumeInvisible
     | EnglishResumeVisible
-    | EnglishResumeInvisible
+    | EnglishKoreaResumeVisible
       -- Mouse Over Event
     | FocusController
     | ZoneOutController
