@@ -160,7 +160,16 @@ resumeController context =
                 ] []
             , text "Printable / Interactive"
             ]
-        , button [ id "downloadPDF" ] [ text "Print" ]
+        , div
+            ( if context.isInteractable then
+            [ attribute "data-tooltip" "Switch to 'Printable' for printing better resume!"
+            , attribute "data-placement" "left"
+            ] else [])
+            [ button
+                [ id "downloadPDF"
+                , disabled context.isInteractable
+                ] [ text "Print" ]
+            ]
         ]
 
 
