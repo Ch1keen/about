@@ -109,9 +109,14 @@ ch1keenCareer context =
                         [ strong [] [ text "SPI tesing," ]
                         , text " focusing on sniffing data by connecting exposed SPI lines and dumping data of an exposed SOIC-8 chip on an instrument cluster."
                         ]
-                    , li [] [ strong [] [ text "V2X (Vehicle-to-Everything) testing," ]
-                    , text " focusing on CAM/DENM and BSM functionalities. Specialized in reverse engineering V2X communication services and developing test plans."
-                    ]
+                    , li []
+                        [ strong [] [ text "V2X (Vehicle-to-Everything) testing," ]
+                        , text " focusing on CAM/DENM and BSM functionalities. Specialized in reverse engineering V2X communication services and developing test plans."
+                        ]
+                    , li []
+                        [ strong [] [ text "BLE Testing," ]
+                        , text " counseling client how to test BLE features using well-known vulnerabilities."
+                        ]
                     , li [] [ text "Contributed to Vehicle Type Approval efforts of an In-Vehicle Infotainment (IVI) hardware by ensuring there were no vulnerabilities on CAN/UDS (ISO/SAE 14229-1) and a media player on IVI." ]
                     ]
                 ]
