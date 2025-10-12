@@ -105,8 +105,13 @@ ch1keenCareer context =
                 , ul []
                     [ li [] [ text "Performed penetration testing on various ECUs including infortainments, an instrumental cluster, and a telematic ECU, based on the TARA method (ISO/SAE 21434) and discovered possible vulnerabilities on Yocto Linux, QNX, and AUTOSAR based systems." ]
                     , li [] [ text "I reported 11 issues in 5 ECUs. 5 issues were classified as incidents, and reported to CEO of Hyundai Mobis (Problems from Past Projects). It was a collaboration project with Hyundai Mobis." ]
-                    , li [] [ text "Led SPI tesing, focusing on sniffing data by connecting exposed SPI lines and dumping data of an exposed SOIC-8 chip on an instrument cluster." ]
-                    , li [] [ text "Led V2X (Vehicle-to-Everything) testing, focusing on CAM/DENM and BSM functionalities. Specialized in reverse engineering V2X communication services and developing test plans." ]
+                    , li []
+                        [ strong [] [ text "SPI tesing," ]
+                        , text " focusing on sniffing data by connecting exposed SPI lines and dumping data of an exposed SOIC-8 chip on an instrument cluster."
+                        ]
+                    , li [] [ strong [] [ text "V2X (Vehicle-to-Everything) testing," ]
+                    , text " focusing on CAM/DENM and BSM functionalities. Specialized in reverse engineering V2X communication services and developing test plans."
+                    ]
                     , li [] [ text "Contributed to Vehicle Type Approval efforts of an In-Vehicle Infotainment (IVI) hardware by ensuring there were no vulnerabilities on CAN/UDS (ISO/SAE 14229-1) and a media player on IVI." ]
                     ]
                 ]
@@ -126,7 +131,8 @@ ch1keenCareer context =
                     ]
                 ]
             , li []
-                [ text "2021.01 - 2022.06: Undergraduate Researcher, Kyonggi University NSE Lab"
+                [ text "2021.01 - 2022.06: Undergraduate Researcher, "
+                , a [ href "https://sites.google.com/view/ksel/about/mission-history" ] [ text "Kyonggi University NSE Lab" ]
                 , ul []
                     [ li [] [ text "Researched blockchain technologies and security vulnerabilities." ]
                     , li [] [ text "Studied security flaws in Ethereum dApps and coin economics." ]
@@ -160,7 +166,10 @@ ch1keenCareer context =
                       , a [ href "https://nvd.nist.gov/vuln/detail/CVE-2018-14665" ] [ text "CVE-2018-14665" ]
                       , text "."
                       ]
-                    , li [] [ text "DevSecOps Container Security Platform (2022): A container managing platform integrating image signing and vulnerability scanning in CI/CD pipelines. Most of code was written in Python, and is open source." ]
+                    , li []
+                      [ text "DevSecOps Container Security Platform (2022): A container managing platform integrating image signing and vulnerability scanning in CI/CD pipelines. Most of code was written in Python, and is "
+                      , a [ href "https://github.com/team-saba" ] [ text "open source." ]
+                      ]
                     ]
                 ]
             ])
@@ -170,23 +179,43 @@ ch1keenAward : Context -> Html Msg
 ch1keenAward context =
     section "Awards and Recognitions" context
         (ul []
-            [ li [] [ text "2025 South Jeolla Province Web Security Competition - Excellence Award" ]
-            , li [] [ text "4th Place, Def Con Car Hacking Village (2024)"
-                    , ul []
-                        [ li [] [ text "Collaborated with the AutoCrypt Red Team, focusing on RAMN challenges." ]
-                        , li [] [ text "Provided reverse engineering insights and identified necessary tools for challenge solutions." ]
-                        , li [] [ text "Facilitated team communication with event staff to obtain critical hints and guidance." ]
-                        ]
+            [ li []
+                [ a
+                    [ href "https://www.kcgsa.org/notice/view.php?idx=236&page=1&search=&find=&board_name=notice&s_menu=s2&s_menu2=s2_1&mode=view"]
+                    [ text "2025 South Jeolla Province Web Security Competition" ]
+                , strong [] [ text " - Excellence Award" ]
+                ]
+            , li []
+                [ strong [] [ text "4th Place" ]
+                , text ", Def Con Car Hacking Village (2024)"
+                , ul []
+                    [ li [] [ text "Collaborated with the AutoCrypt Red Team, focusing on RAMN challenges." ]
+                    , li [] [ text "Provided reverse engineering insights and identified necessary tools for challenge solutions." ]
+                    , li [] [ text "Facilitated team communication with event staff to obtain critical hints and guidance." ]
                     ]
-            , li [] [ text "2023 Brainhack CDDC 2023 CTF (Singapore) - Final 20th Place" ]
+                ]
+            , li []
+                [ a [ href "https://www.dsta.gov.sg/whats-on/spotlight/decoding-the-future-with-bright-minds" ] [ text "2023 Brainhack CDDC 2023 CTF (Singapore)" ]
+                , text " - "
+                , strong [] [ text "Final 20th Place" ]
+                ]
               -- Hacktheon Sejong 2023: https://web.archive.org/web/20250720105349/https://overseas.mofa.go.kr/be-en/brd/m_7437/view.do?seq=761051
               -- https://web.archive.org/web/20250211182326/https://hacktheon.org/2023/eng/overview.php
             , li []
                 [ a [ href "https://hacktheon.org/2023/eng/overview.php" ] [ text "2023 Hacktheon Sejong International Univ. Students' Cyber Security Competition (Korea) " ]
-                , strong [] [ text "- Final 21th Place" ]
+                , text " - "
+                , strong [] [ text "Final 21th Place" ]
                 ]
-            , li [] [ text "2021 KOSPO Web Security Competition - Encouragement Award" ]
-            , li [] [ text "2020 TS Security Competition 'Find Security holes' - Excellence Award" ]
+            , li []
+                [ a [ href "https://www.kospo.co.kr/kospo/216/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGa29zcG8lMkY5NSUyRjEwMjYwMiUyRmFydGNsVmlldy5kbyUzRg%3D%3D" ] [ text "2021 KOSPO Web Security Competition" ]
+                , text " - "
+                , strong [] [ text "Encouragement Award" ]
+                ]
+            , li []
+                [ a [ href "https://main.kotsa.or.kr/portal/bbs/notice_view.do?menuCode=05010100&bbscCode=notice&bbscSeqn=16325" ] [ text "2020 TS Security Competition 'Find Security holes'" ]
+                , text " - "
+                , strong [] [ text "Excellence Award" ]
+                ]
             , li [] [ text "Blood Donation Merit Award (Silver)" ]
             ])
 
@@ -195,11 +224,14 @@ ch1keenEducation : Context -> Html Msg
 ch1keenEducation context =
     section "Education & Training" context
         (ul []
-            [ li [] [ a [ href "https://gcc.ac/archive/gcc_2023/" ] [ text "2023.02: Global Cyber Security 2023 in Singapore" ] ]
+            [ li []
+                [ text "2023.02: "
+                , a [ href "https://gcc.ac/archive/gcc_2023/" ] [ text "Global Cyber Security 2023 in Singapore" ]
+                ]
             , li []
                 [ text "2022.06 - 2023.03: "
                 , a [ href "https://en.kitribob.kr/" ] [ text "KITRI Best of the Best" ]
-                , text "11th - Vulnerability Analysis Track"
+                , text " 11th - Vulnerability Analysis Track"
                 ]
             , li []
                 [ text "2017.03 - 2023.02: Kyonggi University"
@@ -223,6 +255,11 @@ ch1keenCertificate context =
               -- Information of 정보처리기사 (Engineer Information Processing)
               -- https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320&gbnn=gbnSubtab2
             , li [] [ text "Engineer Information Processing (정보처리기사)" ]
+            , li []
+                [ text "Duolingo English Test (DET) : "
+                , strong [] [ text "125" ]
+                , text " (Top B2, Bottom C1 of CEFR)"
+                ]
             ])
 
 
@@ -260,29 +297,39 @@ ch1keenVolunteer context =
             , li []
                 [ text "Open Source Contributions"
                 , ul []
-                    [ li [] [ text "Nix and Ronin: Packaged the Ruby based project 'Ronin' into the Nixpkgs." ]
-                    , li [] [ text "r2angr: Provided Proof-of-Concept code on how to decompile with angr." ]
+                    [ li []
+                        [ text "Nix and Ronin: Packaged the Ruby based project "
+                        , a [ href "https://ronin-rb.dev/" ] [ text "'Ronin'" ]
+                        , text " into the "
+                        , a [ href "https://github.com/NixOS/nixpkgs/tree/master/pkgs/tools/security/ronin" ] [ text "Nixpkgs." ]
+                        ]
+                    , li []
+                        [ text "r2angr: "
+                        , a [ href "https://t.me/radare/248089" ] [ text "Provided Proof-of-Concept code on how to decompile with angr." ]
+                        ]
                     ]
                 ]
             , li []
-                [ text "KITRI BoB Alumni Council"
+                [ text "KITRI BoB Alumni Council: Mar. 2023 - Dec. 2023"
                 , ul []
-                    [ li [] [ text "Active member of the council, contributing to organizing workshops and alumni events." ]
+                    [ li [] [ text "Former member of the council, contributing to organizing workshops and alumni events." ]
                     , li [] [ text "Promoted cybersecurity education and awareness among university students." ]
                     ]
                 ]
             , li []
                 [ text "State Of Origin CTF 2023"
                 , ul []
-                    [ li [] [ text "Volunteered as a challenge creator and organizer for a CTF competition, providing participants with unique and engaging challenges." ]
-                    , li [] [ text "Supported the event with technical and logistical assistance, ensuring a smooth experience for all participants." ]
+                    [ li []
+                        [ text "Volunteered as a challenge creator and organizer for a CTF competition operated by "
+                        , a [ href "https://www.facebook.com/qutwhitehats/posts/hi-allhope-youre-really-excited-for-our-upcoming-state-of-origin-ctf-tomorrow-an/741490527982574/" ] [ text "Cybersecurity clubs of University of Queensland" ]
+                        , text " and University of New South Wales. Created 5 unique and engaging challenges."
+                        ]
                     ]
                 ]
             , li []
-                [ text "UbuCon Asia 2022"
+                [ a [ href "https://2022.ubucon.asia/ko/" ] [ text "UbuCon Asia 2022" ]
                 , ul []
                     [ li [] [ text "Volunteered as a front desk staff at the event, helping to register and assist attendees, including international guests." ]
-                    , li [] [ text "Provided logistical support and ensured smooth operation of event activities." ]
                     ]
                 ]
             ])
