@@ -198,7 +198,7 @@ footer context =
                 [ text "This page is intended to be printed on a separate page. "
                 , text "Press Ctrl+P to save the resume to a PDF file, and discard this page before downloading." ]
             , p [] [ text "Gratefully made with Elm(https://github.com/elm)." ]
-            , p [] [ text "Copyright 2024. Ch1keen all rights reserved." ]
+            , p [] [ text "Copyright 2024. Ch1keen, all rights reserved." ]
             , p []
                 [ text "You can visit "
                 , a [ href "https://github.com/Ch1keen/about" ]
