@@ -88,19 +88,21 @@ contactLine title url label =
 
 section : String -> Context -> Html Msg -> Html Msg
 section title context body =
-    if context.isInteractable
-    then
-        div
-            [ style "margin" "5rem auto"
+    let
+        baseAttrs =
+            [ class "resume-section"
+            , attribute "data-title" title
             , style "break-inside" "avoid"
             ]
+    in
+    if context.isInteractable then
+        div
+            (baseAttrs ++ [ style "margin" "5rem auto" ])
             [ h2 [] [ text title ], divider, body ]
     else
         div
-            [ style "margin" "0 auto"
-            , style "break-inside" "avoid"
-            ]
-            [ h2 [ style "margin-bottom" "2px"] [ text title ], divider, body ]
+            (baseAttrs ++ [ style "margin" "0 auto" ])
+            [ h2 [ style "margin-bottom" "2px" ] [ text title ], divider, body ]
 
 resumeController : Context -> Html Msg
 resumeController context =

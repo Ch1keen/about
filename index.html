@@ -1,36 +1,171 @@
 <!DOCTYPE html>
 <html lang="ko" data-theme="light">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="color-scheme" content="light">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
     <title>Han Jeongjun</title>
-    <script src="main.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.conditional.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  </head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.conditional.min.css"
+    />
+    <style>
+      #splash {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        transition: opacity 0.8s ease;
+      }
 
+      #splashText {
+        position: relative;
+        width: 100%;
+        height: 5rem;
+      }
+
+      .splash-word {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        font-size: 5rem;
+        font-weight: bold;
+        background: linear-gradient(90deg, red, purple, blue);
+        -webkit-background-clip: text;
+        color: transparent;
+        transition: opacity 0.5s ease;
+      }
+
+      #ch1keenText {
+        opacity: 0;
+      }
+
+      #resume {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.8s ease;
+      }
+
+      #resume.visible {
+        opacity: 1;
+      }
+
+      #section-info {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .resume-section {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        opacity: 0.4;
+      }
+
+      .resume-section.active {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+
+      .fade-out {
+        opacity: 0;
+      }
+
+      .fade-out-text {
+        opacity: 0;
+      }
+
+      .fade-in-text {
+        opacity: 1;
+      }
+    </style>
+    <script src="main.js"></script>
+  </head>
   <body>
-    <div id="myapp"></div>
+    <div id="splash">
+      <div id="splashText">
+        <span id="helloText" class="splash-word">Hello</span>
+        <span id="ch1keenText" class="splash-word">Ch1keen</span>
+      </div>
+    </div>
+
+    <div id="section-info">
+      <img src="assets/github-mark.svg" alt="section" width="80" />
+      <h3></h3>
+    </div>
+
+    <div id="resume">
+      <div id="myapp"></div>
+      <div style="text-align: center; margin: 2rem">
+        <button id="savePdf">Save to PDF</button>
+      </div>
+    </div>
 
     <script>
-      const elemMyApp = document.getElementById('myapp')
-      const app = Elm.Main.init({
-        node: elemMyApp
+      const splash = document.getElementById("splash");
+      const helloText = document.getElementById("helloText");
+      const ch1keenText = document.getElementById("ch1keenText");
+      const resume = document.getElementById("resume");
+
+      function showResume() {
+        splash.classList.add("fade-out");
+        resume.style.display = "block";
+        setTimeout(() => {
+          resume.classList.add("visible");
+        }, 50);
+        setTimeout(() => {
+          splash.style.display = "none";
+        }, 800);
+        window.scrollTo(0, 0);
+      }
+
+      let splashScrolled = false;
+      splash.addEventListener("wheel", () => {
+        if (!splashScrolled) {
+          splashScrolled = true;
+          helloText.classList.add("fade-out-text");
+          ch1keenText.classList.add("fade-in-text");
+          setTimeout(showResume, 1000);
+        }
       });
 
-      document.addEventListener('DOMContentLoaded', () => {
-        const btnDownloadPDF = document.getElementById('downloadPDF')
-        btnDownloadPDF.addEventListener('click', (e) => {
-          const elemResumeController = document.getElementById('resumeCtrler')
+      const elemMyApp = document.getElementById("myapp");
+      const app = Elm.Main.init({ node: elemMyApp });
 
-          // Backup previous style of the controller
-          const _ctrlerStyle = elemResumeController.getAttribute('style')
-          elemResumeController.setAttribute('style', 'display: none')
-          window.print()
-          elemResumeController.setAttribute('style', _ctrlerStyle)
-        })
-      })
+      document
+        .getElementById("savePdf")
+        .addEventListener("click", () => window.print());
+
+      const sectionInfo = document.getElementById("section-info");
+      const titleHolder = sectionInfo.querySelector("h3");
+
+      function setupSections() {
+        const sections = document.querySelectorAll(".resume-section");
+        if (sections.length === 0) return;
+        titleHolder.textContent = sections[0].dataset.title;
+        sections[0].classList.add("active");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                sections.forEach((sec) => sec.classList.remove("active"));
+                entry.target.classList.add("active");
+                titleHolder.textContent = entry.target.dataset.title;
+              }
+            });
+          },
+          { threshold: 0.6 }
+        );
+
+        sections.forEach((sec) => observer.observe(sec));
+      }
+
+      setupSections();
     </script>
   </body>
 </html>
