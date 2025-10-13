@@ -87,7 +87,7 @@ ch1keenProfile context =
     section "Profile" context
         (div []
             [ p []
-                [ text "Highly motivated and team-friendly individual with diverse experiences not only in Automotive penetration testing, but also in web hacking, and collaborative projects. Proficient in various programming languages, frameworks, and tools. Experienced in leading teams and contributing to open-source projects." ]
+                [ text "Highly motivated and team-friendly individual with diverse experiences not only in Automotive penetration testing, but also in Web Hacking, and collaborative projects. Proficient in various programming languages, frameworks, and tools. Experienced in leading teams and contributing to open-source projects." ]
             , p [] [ strong [] [ text "Keywords: " ]
                 , text "Automotive, Penetration Testing, Reverse Engineering, UDS (ISO 14229-1), Cyber Security, UN R.155"
             ]
