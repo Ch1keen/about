@@ -88,8 +88,8 @@ ch1keenProfile context =
         (div []
             [ p []
                 [ text "Highly motivated and team-friendly individual with diverse experiences not only in Automotive penetration testing, but also in web hacking, and collaborative projects. Proficient in various programming languages, frameworks, and tools. Experienced in leading teams and contributing to open-source projects." ]
-            , p [] [ strong [] [ text "Keyword: " ]
-                , text "Automotive, Penetration Testing, Reverse Engineering, UDS(ISO 14229-1), Cyber Security, UN R.155"
+            , p [] [ strong [] [ text "Keywords: " ]
+                , text "Automotive, Penetration Testing, Reverse Engineering, UDS (ISO 14229-1), Cyber Security, UN R.155"
             ]
         ])
 
@@ -103,25 +103,25 @@ ch1keenCareer context =
                 , a [ href "https://autocrypt.io" ] [ text "AutoCrypt" ]
                 , text " Red Team"
                 , ul []
-                    [ li [] [ text "Performed penetration testing on various ECUs including infortainments, an instrumental cluster, and a telematic ECU, based on the TARA method (ISO/SAE 21434) and discovered possible vulnerabilities on Yocto Linux, QNX, and AUTOSAR based systems." ]
-                    , li [] [ text "I reported 11 issues in 5 ECUs. 5 issues were classified as incidents, and reported to CEO of Hyundai Mobis (Problems from Past Projects). It was a collaboration project with Hyundai Mobis." ]
+                    [ li [] [ text "Performed penetration testing on various ECUs including infortainments, an instrumental cluster, and a telematics control unit, based on the TARA method (ISO/SAE 21434) and discovered possible vulnerabilities on Yocto Linux, QNX, and AUTOSAR based systems." ]
+                    , li [] [ text "I reported 11 issues in 5 ECUs. 5 issues were classified as incidents, and were reported to the CEO of Hyundai Mobis (Problems from Past Projects). It was a collaboration project with Hyundai Mobis." ]
                     , li []
-                        [ strong [] [ text "SPI tesing," ]
-                        , text " focusing on sniffing data by connecting exposed SPI lines and dumping data of an exposed SOIC-8 chip on an instrument cluster."
+                        [ strong [] [ text "SPI:" ]
+                        , text " focused on sniffing data by connecting exposed SPI lines and dumping data of an exposed SOIC-8 chip on an instrument cluster."
                         ]
                     , li []
-                        [ strong [] [ text "V2X (Vehicle-to-Everything) testing," ]
-                        , text " focusing on CAM/DENM and BSM functionalities. Specialized in reverse engineering V2X communication services and developing test plans."
+                        [ strong [] [ text "V2X (Vehicle-to-Everything):" ]
+                        , text " focused on CAM/DENM and BSM functionalities. Specialized in reverse engineering V2X communication services and developing test plans."
                         ]
                     , li []
-                        [ strong [] [ text "BLE Testing," ]
-                        , text " counseling client how to test BLE features using well-known vulnerabilities."
+                        [ strong [] [ text "BLE (Bluetooth Low-Energy): " ]
+                        , text " counseled a client how to test BLE features using well-known vulnerabilities."
                         ]
-                    , li [] [ text "Contributed to Vehicle Type Approval efforts of an In-Vehicle Infotainment (IVI) hardware by ensuring there were no vulnerabilities on CAN/UDS (ISO/SAE 14229-1) and a media player on IVI." ]
+                    , li [] [ text "Contributed to Vehicle Type Approval efforts of In-Vehicle Infotainment (IVI) hardware by ensuring there were no vulnerabilities in CAN/UDS (ISO/SAE 14229-1) and a media player on IVI." ]
                     ]
                 ]
             , li []
-                [ text "2020.10 - 2021.02: Application Developer Intern, PETNER Co.,Ltd."
+                [ text "2020.10 - 2021.02: Application Developer Intern, PETNER Co., Ltd."
                 , ul []
                     [ li [] [ text "Developed community service using Flutter and Ruby on Rails frameworks." ]
                     ]
@@ -150,13 +150,13 @@ ch1keenCareer context =
                       [ text "The "
                       , a [ href "https://github.com/dia-language" ] [ text "Dia programming language" ]
                       , text " (2024): A functional programming language focused on portability and simplicity. Additionally, "
-                      , a [ href "https://github.com/dia-language/yocto-dia-layer" ] [ text "a yocto recipe for Dia" ]
+                      , a [ href "https://github.com/dia-language/yocto-dia-layer" ] [ text "a Yocto recipe for Dia" ]
                       , text " is available."
                       ]
                     , li []
                       [ text "The "
                       , a [ href "https://wiki.ch1keen.xyz/" ] [ text "Ch1keen Wiki" ]
-                      , text " (2023): Maintaining a web site about cyber security and collected notable tips, written in Next.js." ]
+                      , text " (2023): Maintaining a web site collecting cyber security tips, written in Next.js." ]
                     , li []
                       -- The Hacking Championship Jr. 2023 (DSEC2023 in Daegu)
                       -- 제9회 정보보안 경진대회 (Ministry of Education)
@@ -172,7 +172,7 @@ ch1keenCareer context =
                       , text "."
                       ]
                     , li []
-                      [ text "DevSecOps Container Security Platform (2022): A container managing platform integrating image signing and vulnerability scanning in CI/CD pipelines. Most of code was written in Python, and is "
+                      [ text "DevSecOps Container Security Platform (2022): A container managing platform integrating image signing and vulnerability scanning in CI/CD pipelines. Most of the code is written in Python, and is "
                       , a [ href "https://github.com/team-saba" ] [ text "open source." ]
                       ]
                     ]
@@ -200,7 +200,7 @@ ch1keenAward context =
                     ]
                 ]
             , li []
-                [ a [ href "https://www.dsta.gov.sg/whats-on/spotlight/decoding-the-future-with-bright-minds" ] [ text "2023 Brainhack CDDC 2023 CTF (Singapore)" ]
+                [ a [ href "https://www.dsta.gov.sg/whats-on/spotlight/decoding-the-future-with-bright-minds" ] [ text "2023 Brainhack CDDC CTF (Singapore)" ]
                 , text " - "
                 , strong [] [ text "Final 20th Place" ]
                 ]
@@ -209,7 +209,7 @@ ch1keenAward context =
             , li []
                 [ a [ href "https://hacktheon.org/2023/eng/overview.php" ] [ text "2023 Hacktheon Sejong International Univ. Students' Cyber Security Competition (Korea) " ]
                 , text " - "
-                , strong [] [ text "Final 21th Place" ]
+                , strong [] [ text "Final 21st Place" ]
                 ]
             , li []
                 [ a [ href "https://www.kospo.co.kr/kospo/216/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGa29zcG8lMkY5NSUyRjEwMjYwMiUyRmFydGNsVmlldy5kbyUzRg%3D%3D" ] [ text "2021 KOSPO Web Security Competition" ]
@@ -241,9 +241,9 @@ ch1keenEducation context =
             , li []
                 [ text "2017.03 - 2023.02: Kyonggi University"
                 , ul []
-                    [ li [] [ text "Bachelor of Convergence Security" ]
-                    , li [] [ text "Bachelor of Electronics Engineering" ]
-                    , li [] [ text "(GPA: 3.91/4.5; Double Majors)" ]
+                    [ li [] [ text "Bachelor of Convergence Security (Double Major)" ]
+                    , li [] [ text "Bachelor of Electronics Engineering (Double Major)" ]
+                    , li [] [ text "Total GPA: 3.91/4.5" ]
                     ]
                 ]
             ])
@@ -253,7 +253,7 @@ ch1keenCertificate : Context -> Html Msg
 ch1keenCertificate context =
     section "Certifications" context
         (ul []
-            [ li [] [ text "Forth Class Amateur Radio Operator (Korea)" ]
+            [ li [] [ text "Fourth Class Amateur Radio Operator (Korea)" ]
               -- Information of SQL Developer
               -- vhttps://www.dataq.or.kr/www/sub/a_04.do
             , li [] [ text "SQL Developer (SQLD)" ]
@@ -261,7 +261,7 @@ ch1keenCertificate context =
               -- https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320&gbnn=gbnSubtab2
             , li [] [ text "Engineer Information Processing (정보처리기사)" ]
             , li []
-                [ text "Duolingo English Test (DET) : "
+                [ text "Duolingo English Test (DET): "
                 , strong [] [ text "125" ]
                 , text " (Top B2, Bottom C1 of CEFR)"
                 ]
@@ -291,8 +291,8 @@ ch1keenVolunteer context =
             [ li []
                 [ text "Soksok Camp(쏙쏙캠프) by Ministry of Education (Korea)"
                 , ul []
-                    [ li [] [ text "Each university club goes to a middle school or a high school and teaches to the student. My club went to a middle school in the Daejeon city in the summer of 2018. It was an education charity project by the Ministry of Education of Korea." ]
-                    , li [] [ text "My club taught basic computer science and security to the students. One of my role was addressing the money spent by the club during the camp." ]
+                    [ li [] [ text "Each university club goes to a middle school or a high school and teaches to the student. My club went to a middle school in Daejeon in the summer of 2018. It was an educational charity project by the Ministry of Education of Korea." ]
+                    , li [] [ text "My club taught basic computer science and security to the students. One of my roles was addressing the money spent by the club during the camp." ]
                     , li [] [ text "My club got a great reputation from the students, so my club awarded "
                             , strong [] [ text "a top prize (Minister of Education's)" ]
                             , text " in 2019."
@@ -310,7 +310,7 @@ ch1keenVolunteer context =
                         ]
                     , li []
                         [ text "r2angr: "
-                        , a [ href "https://t.me/radare/248089" ] [ text "Provided Proof-of-Concept code on how to decompile with angr." ]
+                        , a [ href "https://t.me/radare/248089" ] [ text "Provided Proof-of-Concept code how to decompile with angr." ]
                         ]
                     ]
                 ]
