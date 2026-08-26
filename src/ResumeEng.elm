@@ -76,9 +76,9 @@ ch1keenTitle context =
         div
             titleStyling
             [ h1 [ style "text-align" "center" ] [ text "Han Jeongjun" ]
-            , contactLine (text "\u{1f4e7}") "mailto:hire-me@ch1keen.xyz" "hire-me@ch1keen.xyz"
+            , contactLine (text "\u{1f4e7}") "mailto:hire-me@ch1keen.beer" "hire-me@ch1keen.beer"
             , contactLine (img [ src "assets/github-mark.svg", width 24, height 24 ] []) "https://github.com/Ch1keen" "github.com/Ch1keen"
-            , contactLine (text "\u{1f4dd}") "https://about.ch1keen.xyz/" "about.ch1keen.xyz"
+            , contactLine (text "\u{1f4dd}") "https://about.ch1keen.beer/" "about.ch1keen.beer"
             ]
 
 
