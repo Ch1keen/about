@@ -184,21 +184,21 @@ footer context =
                 , a [ href "https://elm-lang.org/" ] [ text "Elm" ]
                 ]
             , p footerStyle
-                [ text "Copyright 2024. Ch1keen all rights reserved." ]
+                [ text "Copyright 2024. Ch1keen, all rights reserved." ]
             , p footerStyle
                 [ text "You can "
                 , a [ href "https://github.com/Ch1keen/about" ]
-                    [ text "browse source code of this resume" ]
+                    [ text "browse the source code of this resume" ]
                 , text "." ]
             ]
     else
         div
             [ style "page-break-before" "always" ]
             [ p []
-                [ text "This page is intended to be printed in a new page. "
-                , text "Press Ctrl+P to save the resume in PDF file, and discard this page before downloading." ]
+                [ text "This page is intended to be printed on a separate page. "
+                , text "Press Ctrl+P to save the resume to a PDF file, and discard this page before downloading." ]
             , p [] [ text "Gratefully made with Elm(https://github.com/elm)." ]
-            , p [] [ text "Copyright 2024. Ch1keen all rights reserved." ]
+            , p [] [ text "Copyright 2024. Ch1keen, all rights reserved." ]
             , p []
                 [ text "You can visit "
                 , a [ href "https://github.com/Ch1keen/about" ]
